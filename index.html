@@ -121,6 +121,31 @@
   .step.last .d { color: #cbbfb2; }
   .loop-note { font-family: 'Kalam', cursive; font-size: 16px; color: var(--muted); margin-top: 16px; }
 
+  /* 9-step approach sequence */
+  .steps9 { margin-top: 22px; display: grid; gap: 0; }
+  .s9 { display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: start; position: relative; padding-bottom: 20px; }
+  .s9:not(:last-child)::before {
+    content: ""; position: absolute; left: 25px; top: 44px; bottom: -2px;
+    width: 2px; background: var(--line-strong);
+  }
+  .s9n {
+    width: 52px; height: 40px; border-radius: 10px;
+    background: var(--paper-2); border: 1px solid var(--line-strong);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Nunito', system-ui, sans-serif; font-weight: 900; font-size: 15px;
+    color: var(--ink); z-index: 1;
+  }
+  .s9.loopclose .s9n { background: var(--no); border-color: var(--no); color: #fff; }
+  .s9.lens .s9n { background: var(--sage); border-color: var(--sage); color: #fff; }
+  .s9c { padding-top: 2px; }
+  .s9t { font-family: 'Nunito', system-ui, sans-serif; font-weight: 800; font-size: 16.5px; color: var(--ink); margin-bottom: 4px; }
+  .s9d { font-size: 14.5px; color: var(--muted); line-height: 1.5; max-width: 560px; }
+  .s9badge {
+    display: inline-block; font-family: 'Spline Sans Mono', monospace; font-size: 9.5px;
+    letter-spacing: .08em; text-transform: uppercase; vertical-align: middle;
+    background: var(--no); color: #fff; padding: 3px 8px; border-radius: 5px; margin-left: 8px; font-weight: 500;
+  }
+
   /* product flow diagram */
   .flowwrap { margin-top: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper-2); padding: 14px clamp(8px,2vw,18px); overflow-x: auto; }
   .flow { width: 100%; min-width: 620px; height: auto; display: block; }
@@ -337,14 +362,19 @@
   <!-- 2. APPROACH -->
   <div class="ml reveal">The approach</div>
   <section class="reveal">
-    <h2 class="ct">So the product isn't a test. It's the loop the test should trigger.</h2>
-    <div class="loop">
-      <div class="step"><div class="n">01</div><div class="t">Upload</div><div class="d">Reads your report automatically — D, B12, ferritin, lipids, sugar.</div></div>
-      <div class="step"><div class="n">02</div><div class="t">Understand</div><div class="d">Your honest baseline in plain language. One lever per marker.</div></div>
-      <div class="step"><div class="n">03</div><div class="t">Forecast</div><div class="d">Projects when a marker will drift — "D trending low by September."</div></div>
-      <div class="step last"><div class="n">&#8635;</div><div class="t">Nudge</div><div class="d">A quiet email at the right moment to act and re-test.</div></div>
+    <h2 class="ct">The product isn't a test. It's the four-week loop the test should trigger.</h2>
+    <div class="steps9">
+      <div class="s9"><div class="s9n">01</div><div class="s9c"><div class="s9t">Find a panel</div><div class="s9d">If you haven't tested yet, start here. Aggregated across PharmEasy, 1mg, Thyrocare, Redcliffe. Sorted by what's most worth booking, not by who pays the most.</div></div></div>
+      <div class="s9"><div class="s9n">02</div><div class="s9c"><div class="s9t">Upload</div><div class="s9d">Drop the report when it arrives. We parse D, B12, ferritin, lipids, sugar, thyroid automatically.</div></div></div>
+      <div class="s9"><div class="s9n">03</div><div class="s9c"><div class="s9t">Understand</div><div class="s9d">Your honest baseline in plain language. One lever per marker.</div></div></div>
+      <div class="s9"><div class="s9n">04</div><div class="s9c"><div class="s9t">Diagnose</div><div class="s9d">A handful of adaptive questions — picked based on what's actually drifting. Diet, sun, sleep, stress.</div></div></div>
+      <div class="s9"><div class="s9n">05</div><div class="s9c"><div class="s9t">Plan</div><div class="s9d">A four-week curated action plan. Foundations &#8594; food &#8594; movement &#8594; re-test. Two moves per week.</div></div></div>
+      <div class="s9"><div class="s9n">06</div><div class="s9c"><div class="s9t">Forecast</div><div class="s9d">Projects when each marker will drift. "D trending low by September."</div></div></div>
+      <div class="s9"><div class="s9n">07</div><div class="s9c"><div class="s9t">Nudge</div><div class="s9d">Weekly check-ins on your specific markers + a heads-up before each re-test window. Quiet, in your inbox.</div></div></div>
+      <div class="s9 loopclose"><div class="s9n">08</div><div class="s9c"><div class="s9t">Re-test <span class="s9badge">loop closes</span></div><div class="s9d">When the line gets close, the same marketplace surfaces the right panel again. The loop closes and begins again.</div></div></div>
+      <div class="s9 lens"><div class="s9n">09</div><div class="s9c"><div class="s9t">Lenses</div><div class="s9d">PCOS cycle tracking for women. HRT/TRT stage log for men on a protocol. Same engine, lens-specific.</div></div></div>
     </div>
-    <p class="loop-note">The nudge is the step that was missing for everyone who relapsed. The test is the cold start; the loop is the product.</p>
+    <p class="loop-note">The test is the cold start. The loop is the product — and it works whether you've tested once, never, or yearly.</p>
   </section>
 
   <!-- 2b. PRODUCT FLOW -->
