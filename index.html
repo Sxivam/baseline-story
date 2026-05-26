@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baseline</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap');
+
+    :root {
+    --ink: #0F0C08; --ink-2: #191915; --paper: #FAF9F5; --paper-2: #F8F7F3;
+    --stone: #E8E6DC; --stone-2: #E0DED6; --chip: #E3DACC;
+    --line: rgba(15,12,8,0.10); --line-strong: rgba(15,12,8,0.20);
+    --muted: #6b6457; --muted-2: #8a8275;
+    --no: #9a3b2a; --no-bg: rgba(154,59,42,0.05);
+    --yes: #3f7d5f; --yes-bg: rgba(63,125,95,0.06);
+    --clay: #D97757; --clay-deep: #c35f3f; --deep: #2B2B26;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background:
+      radial-gradient(circle at 15% 4%, rgba(217,119,87,0.07), transparent 40%),
+      radial-gradient(circle at 88% 96%, rgba(217,119,87,0.04), transparent 44%),
+      var(--paper);
+    color: var(--ink); font-family: 'Inter', system-ui, sans-serif; line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: clamp(28px,6vw,72px) clamp(20px,6vw,40px) 90px; }
+
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s cubic-bezier(.2,.8,.2,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* masthead */
+  /* brand bar + B. mark */
+  .brandbar { display: flex; align-items: center; gap: 12px; margin-bottom: 26px; }
+  .bmark {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--chip); border: 1px solid rgba(15,12,8,0.12);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 21px;
+    color: var(--ink); line-height: 1; letter-spacing: -0.02em;
+  }
+  .bmark .dot { color: var(--clay); }
+  .bmark.big {
+    width: 60px; height: 60px; font-size: 33px; margin: 0 auto 18px;
+    background: rgba(217,119,87,0.16); border-color: rgba(217,119,87,0.4);
+    color: #f4f0e9;
+  }
+  .bmark.big .dot { color: var(--clay); }
+  .bword {
+    font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 21px;
+    letter-spacing: -0.01em; color: var(--ink);
+  }
+
+  .kicker {
+    font-family: 'Spline Sans Mono', monospace; font-size: 11px; letter-spacing: .24em;
+    text-transform: uppercase; color: var(--clay); display: flex; align-items: center; gap: 11px; margin-bottom: 22px;
+  }
+  .kicker::before { content: ""; width: 28px; height: 1px; background: var(--clay); }
+  h1 {
+    font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(38px,7.5vw,66px);
+    line-height: .98; letter-spacing: -.025em; margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; color: var(--clay); }
+  .standfirst { font-size: clamp(17px,2.4vw,20px); color: var(--muted); max-width: 540px; }
+  .arc {
+    display: flex; flex-wrap: wrap; gap: 7px 16px; margin-top: 24px; padding-top: 22px;
+    border-top: 1px solid var(--line);
+    font-family: 'Spline Sans Mono', monospace; font-size: 11px; letter-spacing: .04em; color: var(--muted-2);
+  }
+  .arc span { display: flex; align-items: center; gap: 7px; }
+  .arc span::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--clay); opacity: .6; }
+
+  /* movement labels */
+  .ml {
+    font-family: 'Spline Sans Mono', monospace; font-size: 11px; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--clay); margin: 64px 0 18px; padding-top: 26px;
+    border-top: 1px solid var(--line);
+  }
+  .ct {
+    font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(23px,3.8vw,31px);
+    line-height: 1.1; letter-spacing: -.015em; margin-bottom: 16px;
+  }
+  p { font-size: 16px; color: #322e27; margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+  p b { font-weight: 600; color: var(--ink); }
+  .tight { max-width: 600px; }
+
+  /* big stat line */
+  .pull {
+    font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 400;
+    font-size: clamp(22px,3.8vw,30px); line-height: 1.25; color: var(--deep);
+    border-left: 3px solid var(--clay); padding: 4px 0 4px 22px; margin: 24px 0; letter-spacing: -.01em;
+  }
+  .pull .num { color: var(--no); font-weight: 500; font-style: normal; }
+
+  /* problem one-liner */
+  .stamp {
+    background: var(--deep); color: #f4f0e9; border-radius: 13px; padding: 22px 26px; margin-top: 22px;
+  }
+  .stamp .l {
+    font-family: 'Spline Sans Mono', monospace; font-size: 10.5px; letter-spacing: .18em;
+    text-transform: uppercase; color: #cbb8a8; margin-bottom: 10px;
+  }
+  .stamp p { color: #e6ded3; font-size: 16.5px; margin: 0; }
+  .stamp p b { color: #fff; }
+
+  /* loop — horizontal compact */
+  .loop { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 22px; }
+  @media (max-width: 600px) { .loop { grid-template-columns: 1fr 1fr; } }
+  .step {
+    background: var(--paper-2); border: 1px solid var(--line); border-radius: 12px; padding: 16px 14px;
+    position: relative;
+  }
+  .step.last { background: var(--deep); border-color: var(--deep); }
+  .step .n {
+    font-family: 'Spline Sans Mono', monospace; font-size: 12px; color: var(--clay); margin-bottom: 9px;
+  }
+  .step.last .n { color: #f0b39c; }
+  .step .t { font-weight: 600; font-size: 14.5px; margin-bottom: 5px; line-height: 1.25; }
+  .step.last .t { color: #f1f5f8; }
+  .step .d { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
+  .step.last .d { color: #cbbfb2; }
+  .loop-note { font-size: 14.5px; color: var(--muted); margin-top: 16px; font-style: italic; }
+
+  /* shortlist — compact */
+  .shortlist { display: grid; gap: 9px; margin-top: 18px; }
+  .row {
+    display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center;
+    padding: 13px 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--paper-2);
+  }
+  .row.no { background: var(--no-bg); border-color: rgba(154,59,42,.18); }
+  .row.yes { background: var(--yes-bg); border-color: rgba(47,93,74,.22); }
+  .vd {
+    font-family: 'Spline Sans Mono', monospace; font-size: 10px; letter-spacing: .07em;
+    text-transform: uppercase; padding: 4px 9px; border-radius: 6px; white-space: nowrap;
+  }
+  .vd.no { background: var(--no); color: #fff; }
+  .vd.yes { background: var(--yes); color: #fff; }
+  .vd.soft { background: #D97757; color: #fff; }
+  .row .nm { font-weight: 600; font-size: 14.5px; }
+  .row .rs { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+  .contrast {
+    margin-top: 18px; font-family: 'Newsreader', Georgia, serif; font-style: italic;
+    font-size: clamp(17px,2.6vw,21px); line-height: 1.35; color: var(--deep); letter-spacing: -.01em;
+  }
+
+  /* ICP — bold card */
+  .icp {
+    margin-top: 20px; border: 1px solid var(--line-strong); border-radius: 16px; overflow: hidden;
+  }
+  .icp-head { background: var(--deep); color: #fff; padding: 22px 24px; }
+  .icp-head .t { font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(20px,3vw,25px); letter-spacing: -.01em; }
+  .icp-head .s { font-family: 'Spline Sans Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #cbb8a8; margin-top: 7px; text-transform: uppercase; }
+  .icp-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  @media (max-width: 560px) { .icp-grid { grid-template-columns: 1fr; } }
+  .cell { padding: 18px 22px; border-bottom: 1px solid var(--line); background: var(--paper-2); }
+  .cell:nth-child(odd) { border-right: 1px solid var(--line); }
+  @media (max-width: 560px) { .cell:nth-child(odd) { border-right: none; } }
+  .cell .k {
+    font-family: 'Spline Sans Mono', monospace; font-size: 10.5px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--clay); margin-bottom: 8px;
+  }
+  .cell .v { font-size: 14.5px; color: #322e27; line-height: 1.45; }
+  .cell .v b { font-weight: 600; color: var(--ink); }
+  .cell.wide { grid-column: 1 / -1; border-right: none; }
+  .jtbd { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 17px; color: var(--deep); line-height: 1.35; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .c {
+    font-family: 'Spline Sans Mono', monospace; font-size: 11px; padding: 4px 9px; border-radius: 5px;
+    background: rgba(217,119,87,0.14); color: #D97757;
+  }
+  .c.out { background: var(--no-bg); color: var(--no); text-decoration: line-through; text-decoration-color: rgba(154,59,42,.4); }
+
+  /* GTM — the engine, given weight */
+  .engine-tag {
+    display: inline-block; font-family: 'Spline Sans Mono', monospace; font-size: 10.5px;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--clay);
+    background: rgba(217,119,87,0.12); padding: 5px 12px; border-radius: 6px; margin-bottom: 14px;
+  }
+  .gtm-hook {
+    font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(22px,3.6vw,29px);
+    line-height: 1.18; letter-spacing: -.015em; color: var(--deep); margin-bottom: 16px;
+  }
+  .gtm-hook em { font-style: italic; color: var(--clay); }
+  .ripple { display: grid; gap: 10px; margin-top: 20px; }
+  .rstep {
+    display: grid; grid-template-columns: auto 1fr; gap: 15px; align-items: start;
+    border: 1px solid var(--line); border-radius: 12px; background: var(--paper-2); padding: 16px 18px;
+  }
+  .rstep .rn { font-family: 'Newsreader', Georgia, serif; font-size: 21px; font-weight: 500; color: var(--clay); line-height: 1; min-width: 24px; }
+  .rstep .rt { font-weight: 600; font-size: 15px; margin-bottom: 3px; }
+  .rstep .rd { font-size: 13.5px; color: var(--muted); line-height: 1.45; }
+  .rstep .rd b { color: var(--ink); font-weight: 600; }
+  .followers {
+    display: flex; align-items: baseline; gap: 12px; margin: 22px 0 4px; flex-wrap: wrap;
+  }
+  .followers .big {
+    font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(40px,8vw,66px);
+    color: var(--deep); letter-spacing: -.03em; line-height: .9;
+  }
+  .followers .cap { font-size: 15px; color: var(--muted); max-width: 320px; }
+
+  /* market sizing funnel */
+  .funnel-size { margin-top: 20px; display: grid; gap: 10px; }
+  .fs { border-radius: 13px; padding: 18px 22px; border: 1px solid var(--line); }
+  .fs.tam { background: var(--paper-2); }
+  .fs.sam { background: rgba(217,119,87,0.08); border-color: rgba(217,119,87,0.30); margin: 0 auto; width: 90%; }
+  .fs.som { background: var(--deep); border-color: var(--deep); margin: 0 auto; width: 78%; }
+  @media (max-width: 600px) { .fs.sam, .fs.som { width: 100%; } }
+  .fs-band {
+    font-family: 'Spline Sans Mono', monospace; font-size: 10.5px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--clay); margin-bottom: 10px;
+  }
+  .fs.som .fs-band { color: #f0b39c; }
+  .fs-row { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; }
+  @media (max-width: 480px) { .fs-row { grid-template-columns: 1fr; gap: 8px; } }
+  .fs-num {
+    font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(30px,5vw,42px);
+    color: var(--deep); letter-spacing: -.02em; line-height: 1; min-width: 110px;
+  }
+  .fs.som .fs-num { color: #fff; }
+  .fs-desc { font-size: 14px; color: var(--muted); line-height: 1.45; }
+  .fs-desc b { color: var(--ink); font-weight: 600; }
+  .fs.som .fs-desc { color: #cbbfb2; }
+  .fs.som .fs-desc b { color: #fff; }
+  .size-note { font-size: 14px; color: var(--muted); margin-top: 16px; font-style: italic; max-width: 600px; }
+
+  /* 3-V cards */
+  .threeV { display: grid; grid-template-columns: repeat(3,1fr); gap: 11px; margin-top: 20px; }
+  @media (max-width: 640px) { .threeV { grid-template-columns: 1fr; } }
+  .v-card { border: 1px solid var(--line); border-radius: 12px; background: var(--paper-2); padding: 16px 18px; }
+  .v-k {
+    font-family: 'Spline Sans Mono', monospace; font-size: 10.5px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--clay); margin-bottom: 9px;
+  }
+  .v-d { font-size: 13.5px; color: #322e27; line-height: 1.45; }
+
+  /* G-STIC */
+  .gstic { margin-top: 14px; border: 1px solid var(--line-strong); border-radius: 14px; overflow: hidden; }
+  .g-row { display: grid; grid-template-columns: 130px 1fr; border-bottom: 1px solid var(--line); }
+  .g-row:last-child { border-bottom: none; }
+  @media (max-width: 560px) { .g-row { grid-template-columns: 1fr; } }
+  .g-k {
+    background: var(--deep); color: #f4f0e9; padding: 16px 18px;
+    font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 16px;
+    display: flex; align-items: center;
+  }
+  .g-v { padding: 16px 20px; font-size: 14px; color: #322e27; line-height: 1.5; background: var(--paper-2); }
+
+  /* final */
+  .final {
+    margin-top: 64px; background: var(--deep); color: #f4f0e9; border-radius: 18px;
+    padding: 42px clamp(26px,5vw,46px); text-align: center; box-shadow: 0 20px 48px -26px rgba(43,43,38,.5);
+  }
+  .final .m { font-family: 'Spline Sans Mono', monospace; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #cbb8a8; margin-bottom: 14px; }
+  .final h2 { font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(34px,6vw,52px); letter-spacing: -.02em; margin-bottom: 12px; }
+  .final p { color: #d4cabd; font-size: 16px; max-width: 460px; margin: 0 auto; }
+  .final .punch {
+    margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14);
+    font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 18px; color: #f1ebe2;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="reveal in">
+    <div class="brandbar">
+      <span class="bmark">B<span class="dot">.</span></span>
+      <span class="bword">Baseline</span>
+    </div>
+    <h1>Fit on the outside.<br><em>Flying blind</em> on the inside.</h1>
+    <p class="standfirst">It started with a friend's surgery. It ends with the people who look healthiest finding out they never actually were.</p>
+    <div class="arc">
+      <span>the realisation</span><span>the approach</span><span>the trade-off</span><span>who it's for</span><span>the market</span><span>how it spreads</span>
+    </div>
+  </header>
+
+  <!-- 1. PROBLEM -->
+  <div class="ml reveal">The realisation</div>
+  <section class="reveal">
+    <h2 class="ct">A friend's pre-op bloodwork started this.</h2>
+    <p class="tight">Before a minor surgery, his doctor ordered a basic panel. He booked it on a pharmacy app for a few hundred rupees. I didn't even know testing was that cheap — and I care about this more than most.</p>
+    <p class="tight">So I ran it on myself. I'm the fittest in my group: gym daily, clean diet, cardio. I expected a clean sheet. <b>I didn't get one.</b> You can't know what's happening inside you from how you look or how much you lift.</p>
+  </section>
+
+  <section class="reveal">
+    <h2 class="ct">Then I made my whole friend group test.</h2>
+    <div class="pull">Ten high performers tested. <span class="num">10 out of 10</span> came back with hidden issues — quietly draining their energy, mood and focus.</div>
+    <p class="tight">One friend's vitamin D was barely survivable, while she blamed her consulting job for the exhaustion. In a group built for being driven and health-aware, the deficiency wasn't the exception. <b>It was the default.</b></p>
+    <div class="stamp">
+      <div class="l">The problem</div>
+      <p>People optimise what they can <b>see</b> and ignore what they can't. Even when something makes them test once, nothing keeps them in the loop — so the issues silently return.</p>
+    </div>
+  </section>
+
+  <!-- 2. APPROACH -->
+  <div class="ml reveal">The approach</div>
+  <section class="reveal">
+    <h2 class="ct">So the product isn't a test. It's the loop the test should trigger.</h2>
+    <div class="loop">
+      <div class="step"><div class="n">01</div><div class="t">Upload</div><div class="d">Reads your report automatically — D, B12, ferritin, lipids, sugar.</div></div>
+      <div class="step"><div class="n">02</div><div class="t">Understand</div><div class="d">Your honest baseline in plain language. One lever per marker.</div></div>
+      <div class="step"><div class="n">03</div><div class="t">Forecast</div><div class="d">Projects when a marker will drift — "D trending low by September."</div></div>
+      <div class="step last"><div class="n">&#8635;</div><div class="t">Nudge</div><div class="d">A quiet email at the right moment to act and re-test.</div></div>
+    </div>
+    <p class="loop-note">The nudge is the step that was missing for everyone who relapsed. The test is the cold start; the loop is the product.</p>
+  </section>
+
+  <!-- 3. TRADE-OFF -->
+  <div class="ml reveal">The trade-off</div>
+  <section class="reveal">
+    <h2 class="ct">I had many ideas. The first step decided it.</h2>
+    <div class="shortlist">
+      <div class="row no"><span class="vd no">no</span><span><span class="nm">Generic fitness / habit trackers</span><div class="rs">No edge, nothing new. Didn't go deeper.</div></span></div>
+      <div class="row soft" style="background:rgba(138,109,31,.05);border-color:rgba(138,109,31,.28);"><span class="vd soft">built, set aside</span><span><span class="nm">Middle Path — a de-addiction tool</span><div class="rs">My own framework, genuinely built. Set aside on one point: too much friction to even begin, so most people never start.</div></span></div>
+      <div class="row yes"><span class="vd yes">yes</span><span><span class="nm">A blood-test baseline that keeps you in the loop</span><div class="rs">Personal proof, sharp ICP, software does the part humans drop — and an effortless first step.</div></span></div>
+    </div>
+    <p class="contrast">Same person, two real ideas. One has a wall at the entrance. The other has an open door. For a product that only works over a long loop, the door is everything.</p>
+  </section>
+
+  <!-- 4. ICP -->
+  <div class="ml reveal">Who it's for</div>
+  <section class="reveal">
+    <div class="icp">
+      <div class="icp-head">
+        <div class="t">The high-performer who's never looked under the hood</div>
+        <div class="s">Primary segment</div>
+      </div>
+      <div class="icp-grid">
+        <div class="cell">
+          <div class="k">Who</div>
+          <div class="v"><b>18–28, urban India.</b> IITs, top DU colleges, SRCC, IIMs, early startups, consulting, tech. A test is a rounding error for them.</div>
+        </div>
+        <div class="cell">
+          <div class="k">The wedge belief</div>
+          <div class="v">They equate <b>visible effort with internal health.</b> They've never seen their own D, B12 or lipids. They're sure they're fine. They're usually not.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Mindset</div>
+          <div class="v">Optimisation-obsessed. Huberman, Attia, Bryan Johnson. Ready to act on data — just no India-built on-ramp and no loop.</div>
+        </div>
+        <div class="cell">
+          <div class="k">Triggers</div>
+          <div class="v"><div class="chips"><span class="c">a friend's results</span><span class="c">a scare</span><span class="c">low energy</span><span class="c">a creator's numbers</span></div></div>
+        </div>
+        <div class="cell wide">
+          <div class="k">The job they're hiring it for</div>
+          <div class="v jtbd">"Tell me honestly if I'm actually healthy inside — and stop me from quietly slipping back once I've fixed it."</div>
+        </div>
+        <div class="cell wide">
+          <div class="k">Not the ICP, yet</div>
+          <div class="v"><div class="chips"><span class="c out">28–40, fatalistic</span><span class="c out">corporate-checkup covered</span><span class="c out">clinically diagnosed</span><span class="c out">seeking treatment</span></div><div style="font-size:13px;color:var(--muted);margin-top:10px;">Baseline is awareness and habit, not diagnosis. Holding that line keeps it focused and safe. Vegetarians are the sharpest expansion next — higher D / B12 / iron risk.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4b. MARKET SIZING -->
+  <div class="ml reveal">How big is this</div>
+  <section class="reveal">
+    <h2 class="ct">Sizing it from the audience that already self-selects.</h2>
+    <p class="tight">The clean proxy for my ICP is the audience that follows the longevity and optimisation world — Huberman, Attia, Bryan Johnson. They've already raised their hand. I sized top-down from India's urban young population and cross-checked against that following.</p>
+
+    <div class="funnel-size">
+      <div class="fs tam">
+        <div class="fs-band">TAM</div>
+        <div class="fs-row">
+          <div class="fs-num">~45M</div>
+          <div class="fs-desc"><b>Urban Indians, 18–28, with disposable income.</b> India's urban population is ~535M; this cohort is the slice young enough to build the habit and able to pay for tests.</div>
+        </div>
+      </div>
+      <div class="fs sam">
+        <div class="fs-band">SAM</div>
+        <div class="fs-row">
+          <div class="fs-num">~6–8M</div>
+          <div class="fs-desc"><b>The optimisation-curious within it.</b> The ones who follow health/longevity creators and already act on their bodies — mirrored by Huberman's ~8M global reach. They have intent; they lack an India-built loop.</div>
+        </div>
+      </div>
+      <div class="fs som">
+        <div class="fs-band">SOM</div>
+        <div class="fs-row">
+          <div class="fs-num">~250–400K</div>
+          <div class="fs-desc"><b>Reachable in year one through my own channel and its ripple.</b> Starting from 85K direct followers who are the ICP, plus the share and creator spillover the story creates.</div>
+        </div>
+      </div>
+    </div>
+    <p class="size-note">Top-down from population, sanity-checked bottom-up against creator reach. The point isn't the exact number — it's that a sharp, self-selecting, payment-ready segment of single-digit millions exists, and I can reach a real wedge of it on day one.</p>
+  </section>
+
+  <!-- 5. GTM — the engine -->
+  <div class="ml reveal">How it spreads</div>
+  <section class="reveal">
+    <div class="engine-tag">This is why I'm building it</div>
+    <div class="gtm-hook">The best consumer products ride a story. <em>I already have the story, and the audience.</em></div>
+    <p class="tight">People go to the gym, eat clean, and still have heart attacks — because they're optimising cosmetically and never looking inside. That's the exact contradiction I lived. And the people who follow me are people like me: driven, fit-looking, optimisation-curious. I don't market to them. I just tell them what happened to me.</p>
+
+    <div class="followers">
+      <div class="big">85K+</div>
+      <div class="cap">already follow me — and they're the ICP, not a lookalike of it. The ripple starts the moment I share my own report.</div>
+    </div>
+
+    <div class="ripple">
+      <div class="rstep"><div class="rn">1</div><div><div class="rt">Tell my story, show my numbers</div><div class="rd">Fit on the outside, surprised on the inside. My real report is the first proof — no ad, just the truth that pulled me in.</div></div></div>
+      <div class="rstep"><div class="rn">2</div><div><div class="rt">Remove every excuse to not test</div><div class="rd">I've already done the legwork: <b>a built-in finder for the cheapest, fastest-turnaround tests near you</b> to play with. The first step costs a few hundred rupees and a tap.</div></div></div>
+      <div class="rstep"><div class="rn">3</div><div><div class="rt">Let the surprise spread it</div><div class="rd">10-out-of-10 means almost everyone who tests finds something. Each surprising result becomes the reason the next person tests — exactly how it spread in my own circle.</div></div></div>
+      <div class="rstep"><div class="rn">4</div><div><div class="rt">Keep them with the loop</div><div class="rd">Virality gets the first test. The nudge loop earns the second. <b>That's the difference between a spike and a product.</b></div></div></div>
+    </div>
+  </section>
+
+  <!-- 5b. CHERNEV MODEL -->
+  <div class="ml reveal">The GTM, structured</div>
+  <section class="reveal">
+    <h2 class="ct">Run through Chernev's G-STIC and 3-V lens.</h2>
+    <p class="tight">The story is the engine. This is the discipline underneath it — so it holds up as a plan, not just a moment.</p>
+
+    <div class="threeV">
+      <div class="v-card">
+        <div class="v-k">Customer value</div>
+        <div class="v-d">For the first time, you see your true internal state in plain language — and never silently slide back, because the loop catches the drift before you do.</div>
+      </div>
+      <div class="v-card">
+        <div class="v-k">Company value</div>
+        <div class="v-d">Near-zero CAC through my own channel, a recurring re-test rhythm that builds retention, and a proprietary baseline that deepens with every upload.</div>
+      </div>
+      <div class="v-card">
+        <div class="v-k">Collaborator value</div>
+        <div class="v-d">Diagnostic labs and pharmacy-test platforms get qualified, ready-to-book demand routed to them — Baseline sends them first-time and repeat testers.</div>
+      </div>
+    </div>
+
+    <div class="gstic">
+      <div class="g-row"><div class="g-k">Goal</div><div class="g-v">Make a recurring blood-test habit the default for young, health-aware Indians. Year-one focus: first tests booked and second tests completed — the proof the loop works.</div></div>
+      <div class="g-row"><div class="g-k">Strategy</div><div class="g-v">Target the optimisation-curious 18–28 (the SAM) through a creator-led, story-first wedge. Win on the one thing incumbents miss: the persistent loop, not the one-time number.</div></div>
+      <div class="g-row"><div class="g-k">Tactics</div><div class="g-v">My story + my own report as the hook · a built-in finder for the cheapest, fastest-turnaround tests to remove all friction · auto-parsed baseline · forecast-timed nudges · share-driven ripple.</div></div>
+      <div class="g-row"><div class="g-k">Implementation</div><div class="g-v">Launch to 85K direct followers, instrument every upload, layer in lab partnerships for test booking, then widen to vegetarian audiences as the second segment.</div></div>
+      <div class="g-row"><div class="g-k">Control</div><div class="g-v">Watch first-test conversion, baseline uploads, nudge open-and-act rate, and re-test rate. Re-test rate is the real signal — it tells me the loop, not the launch, is doing the work.</div></div>
+    </div>
+  </section>
+
+  <section class="final reveal">
+    <span class="bmark big">B<span class="dot">.</span></span>
+    <div class="m">what I'm building</div>
+    <h2>Baseline</h2>
+    <p>A single honest blood test, turned into a tracked, nudged, lasting habit — for the person who looks fit and never actually checked.</p>
+    <div class="punch">The test is the cold start. The loop is the product.</div>
+  </section>
+
+</div>
+
+<script>
+  const io = new IntersectionObserver((es) => {
+    es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>
