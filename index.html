@@ -79,13 +79,17 @@
     border-top: 1px solid var(--line);
   }
   .ct {
-    font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(23px,3.8vw,31px);
-    line-height: 1.1; letter-spacing: -.015em; margin-bottom: 16px;
+    font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(24px,3.8vw,32px);
+    line-height: 1.18; letter-spacing: -.015em; margin-bottom: 18px;
   }
-  p { font-size: 16px; color: #322e27; margin-bottom: 14px; }
+  p { font-size: 16px; color: #322e27; margin-bottom: 14px; line-height: 1.6; }
   p:last-child { margin-bottom: 0; }
   p b { font-weight: 600; color: var(--ink); }
   .tight { max-width: 600px; }
+
+  /* breathing room between stacked chapters that share a movement label */
+  section + section { margin-top: 52px; }
+  .ml + section { margin-top: 0; }
 
   /* big stat line */
   .pull {
@@ -119,10 +123,49 @@
   }
   .step.last .n { color: #f0b39c; }
   .step .t { font-weight: 600; font-size: 14.5px; margin-bottom: 5px; line-height: 1.25; }
-  .step.last .t { color: #f1f5f8; }
+  .step.last .t { color: #f4f0e9; }
   .step .d { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
   .step.last .d { color: #cbbfb2; }
   .loop-note { font-size: 14.5px; color: var(--muted); margin-top: 16px; font-style: italic; }
+
+  /* product flow diagram */
+  .flowwrap { margin-top: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper-2); padding: 14px clamp(8px,2vw,18px); overflow-x: auto; }
+  .flow { width: 100%; min-width: 620px; height: auto; display: block; }
+  .flow .ft-t { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 13.5px; fill: var(--ink); }
+  .flow .ft-t.clay { fill: var(--clay-deep); }
+  .flow .ft-t.dk { fill: #f4f0e9; }
+  .flow .ft-s { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 10.5px; fill: var(--muted); }
+  .flow .ft-s.clay { fill: var(--clay-deep); opacity: 0.85; }
+  .flow .ft-s.dk { fill: #cbbfb2; }
+  .flow .ft-split { font-family: 'Spline Sans Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; fill: var(--muted-2); }
+  .flow .ft-tag { font-family: 'Spline Sans Mono', monospace; font-size: 9.5px; letter-spacing: .06em; fill: var(--muted); }
+  .flow .ft-tag.clay-tag { fill: var(--clay-deep); }
+  .flow .ft-note { font-family: 'Inter', sans-serif; font-size: 11.5px; fill: var(--muted); }
+  .flow .lanetag-bg { fill: var(--paper-2); }
+
+  .flow .n-box { fill: #fff; stroke: var(--line-strong); stroke-width: 1; }
+  .flow .n-land { fill: var(--chip); stroke: rgba(15,12,8,0.14); stroke-width: 1; }
+  .flow .n-clay { fill: rgba(217,119,87,0.10); stroke: var(--clay); stroke-width: 1.3; }
+  .flow .n-dark { fill: var(--deep); stroke: var(--deep); }
+  .flow .n-soft { fill: var(--paper); stroke: var(--line-strong); stroke-width: 1; }
+  .flow .n-lens { fill: #fff; stroke: var(--line-strong); stroke-width: 1; stroke-dasharray: 3 3; }
+  .flow .n-note { fill: rgba(217,119,87,0.05); stroke: rgba(217,119,87,0.25); stroke-width: 1; }
+
+  .flow .edge { stroke: var(--line-strong); stroke-width: 1.5; }
+  .flow .edge.dashed { stroke-dasharray: 5 4; }
+  .flow .edge.dotted { stroke-dasharray: 2 4; stroke: var(--muted-2); }
+  .flow .clay-edge { stroke: var(--clay); stroke-width: 1.8; stroke-dasharray: 6 4; }
+
+  .flowlegend {
+    display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 16px;
+    font-family: 'Spline Sans Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: .03em;
+  }
+  .flowlegend span { display: flex; align-items: center; gap: 7px; }
+  .lg { width: 13px; height: 13px; border-radius: 4px; display: inline-block; }
+  .lg-box { background: #fff; border: 1px solid var(--line-strong); }
+  .lg-clay { background: rgba(217,119,87,0.10); border: 1.3px solid var(--clay); }
+  .lg-dark { background: var(--deep); }
+  .lg-loop { background: transparent; border: 1.8px dashed var(--clay); }
 
   /* shortlist — compact */
   .shortlist { display: grid; gap: 9px; margin-top: 18px; }
@@ -240,15 +283,17 @@
 
   /* G-STIC */
   .gstic { margin-top: 14px; border: 1px solid var(--line-strong); border-radius: 14px; overflow: hidden; }
-  .g-row { display: grid; grid-template-columns: 130px 1fr; border-bottom: 1px solid var(--line); }
+  .g-row { display: grid; grid-template-columns: 168px 1fr; border-bottom: 1px solid var(--line); align-items: stretch; }
   .g-row:last-child { border-bottom: none; }
-  @media (max-width: 560px) { .g-row { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .g-row { grid-template-columns: 1fr; } }
   .g-k {
-    background: var(--deep); color: #f4f0e9; padding: 16px 18px;
-    font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 16px;
+    background: var(--deep); color: #f4f0e9; padding: 18px 20px;
+    font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 17px;
+    letter-spacing: -0.005em; line-height: 1.2;
     display: flex; align-items: center;
   }
-  .g-v { padding: 16px 20px; font-size: 14px; color: #322e27; line-height: 1.5; background: var(--paper-2); }
+  @media (max-width: 600px) { .g-k { padding: 14px 18px; font-size: 16px; } }
+  .g-v { padding: 18px 22px; font-size: 14.5px; color: #322e27; line-height: 1.55; background: var(--paper-2); }
 
   /* final */
   .final {
@@ -275,7 +320,7 @@
     <h1>Fit on the outside.<br><em>Flying blind</em> on the inside.</h1>
     <p class="standfirst">It started with a friend's surgery. It ends with the people who look healthiest finding out they never actually were.</p>
     <div class="arc">
-      <span>the realisation</span><span>the approach</span><span>the trade-off</span><span>who it's for</span><span>the market</span><span>how it spreads</span>
+      <span>the realisation</span><span>the approach</span><span>the flow</span><span>the trade-off</span><span>who it's for</span><span>the market</span><span>how it spreads</span>
     </div>
   </header>
 
@@ -308,6 +353,120 @@
       <div class="step last"><div class="n">&#8635;</div><div class="t">Nudge</div><div class="d">A quiet email at the right moment to act and re-test.</div></div>
     </div>
     <p class="loop-note">The nudge is the step that was missing for everyone who relapsed. The test is the cold start; the loop is the product.</p>
+  </section>
+
+  <!-- 2b. PRODUCT FLOW -->
+  <div class="ml reveal">The product, end to end</div>
+  <section class="reveal">
+    <h2 class="ct">Two ways in. One loop they never leave.</h2>
+    <p class="tight">Whether you already have a report or haven't tested yet, every path converges on the same baseline, plan and accountability loop. Returning users skip straight to their dashboard.</p>
+
+    <div class="flowwrap">
+    <svg class="flow" viewBox="0 0 820 900" role="img" aria-label="Baseline product flow diagram">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1.5L8 5L2 8.5" fill="none" stroke="var(--line-strong)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+        <marker id="arc" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1.5L8 5L2 8.5" fill="none" stroke="var(--clay)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <!-- MAIN COLUMN center x=250 -->
+      <rect x="150" y="24" width="200" height="54" rx="11" class="n-land"/>
+      <text x="250" y="46" class="ft-t" text-anchor="middle">Landing</text>
+      <text x="250" y="63" class="ft-s" text-anchor="middle">the hook + deficiency stats</text>
+      <line x1="250" y1="78" x2="250" y2="106" class="edge" marker-end="url(#ar)"/>
+
+      <rect x="150" y="106" width="200" height="54" rx="11" class="n-box"/>
+      <text x="250" y="128" class="ft-t" text-anchor="middle">/start</text>
+      <text x="250" y="145" class="ft-s" text-anchor="middle">profile &#183; diet &#183; sun &#183; city</text>
+
+      <text x="250" y="190" class="ft-split" text-anchor="middle">have a report?</text>
+      <path d="M250 160 L250 200" class="edge" fill="none" marker-end="url(#ar)"/>
+      <rect x="258" y="206" width="32" height="16" rx="4" class="lanetag-bg"/>
+      <text x="274" y="218" class="ft-tag" text-anchor="middle">yes</text>
+      <path d="M350 133 L560 133 L560 200" class="edge" fill="none" marker-end="url(#ar)"/>
+      <rect x="426" y="116" width="58" height="17" rx="4" class="lanetag-bg"/>
+      <text x="455" y="129" class="ft-tag" text-anchor="middle">not yet</text>
+
+      <rect x="150" y="200" width="200" height="52" rx="11" class="n-box"/>
+      <text x="250" y="220" class="ft-t" text-anchor="middle">/upload</text>
+      <text x="250" y="238" class="ft-s" text-anchor="middle">PDF &#8594; markers parsed</text>
+
+      <rect x="560" y="200" width="200" height="52" rx="11" class="n-box"/>
+      <text x="660" y="220" class="ft-t" text-anchor="middle">/tests</text>
+      <text x="660" y="238" class="ft-s" text-anchor="middle">book a panel &#183; marketplace</text>
+      <path d="M560 238 L410 238 L410 272 L352 272" class="edge dashed" fill="none" marker-end="url(#ar)"/>
+      <rect x="436" y="221" width="74" height="17" rx="4" class="lanetag-bg"/>
+      <text x="473" y="234" class="ft-tag" text-anchor="middle">gets tested</text>
+
+      <line x1="250" y1="252" x2="250" y2="282" class="edge" marker-end="url(#ar)"/>
+
+      <rect x="150" y="282" width="200" height="52" rx="11" class="n-box"/>
+      <text x="250" y="302" class="ft-t" text-anchor="middle">/intake</text>
+      <text x="250" y="320" class="ft-s" text-anchor="middle">5&#8211;7 adaptive questions</text>
+      <line x1="250" y1="334" x2="250" y2="364" class="edge" marker-end="url(#ar)"/>
+
+      <rect x="150" y="364" width="200" height="58" rx="11" class="n-clay"/>
+      <text x="250" y="388" class="ft-t clay" text-anchor="middle">/plan &#8212; the reveal</text>
+      <text x="250" y="406" class="ft-s clay" text-anchor="middle">4-week plan + accountability</text>
+      <line x1="250" y1="422" x2="250" y2="452" class="edge" marker-end="url(#ar)"/>
+
+      <rect x="140" y="452" width="220" height="60" rx="12" class="n-dark"/>
+      <text x="250" y="476" class="ft-t dk" text-anchor="middle">/dashboard</text>
+      <text x="250" y="495" class="ft-s dk" text-anchor="middle">baseline &#183; this week &#183; nudges</text>
+      <line x1="250" y1="512" x2="250" y2="542" class="edge" marker-end="url(#ar)"/>
+
+      <rect x="140" y="542" width="220" height="52" rx="11" class="n-box"/>
+      <text x="250" y="562" class="ft-t" text-anchor="middle">/forecast/[marker]</text>
+      <text x="250" y="580" class="ft-s" text-anchor="middle">decay curve &#183; soft re-test date</text>
+
+      <!-- RIGHT LANE 1 x=455 : re-test loop, forecast -> upload -->
+      <path d="M360 568 L500 568 L500 226 L352 226" class="edge clay-edge" fill="none" marker-end="url(#arc)"/>
+      <rect x="454" y="430" width="92" height="19" rx="5" class="lanetag-bg"/>
+      <text x="500" y="443" class="ft-tag clay-tag" text-anchor="middle">re-test loop</text>
+
+      <!-- RIGHT LANE 2 x=792 : returning user, start -> dashboard -->
+      <path d="M350 119 L720 119 L720 482 L360 482" class="edge clay-edge" fill="none" marker-end="url(#arc)"/>
+      <rect x="636" y="290" width="168" height="19" rx="5" class="lanetag-bg"/>
+      <text x="720" y="303" class="ft-tag clay-tag" text-anchor="middle">returning user &#8594; dashboard</text>
+
+      <!-- IMPROVE -->
+      <rect x="560" y="456" width="200" height="52" rx="11" class="n-soft"/>
+      <text x="660" y="476" class="ft-t" text-anchor="middle">/improve</text>
+      <text x="660" y="494" class="ft-s" text-anchor="middle">full move library</text>
+      <path d="M360 482 L560 482" class="edge" fill="none" marker-end="url(#ar)"/>
+
+      <!-- CONDITIONAL LENSES -->
+      <text x="250" y="637" class="ft-split" text-anchor="middle">conditional, by profile</text>
+      <path d="M250 594 L250 658" class="edge dotted" fill="none"/>
+      <path d="M250 658 L170 658 L170 686" class="edge dotted" fill="none" marker-end="url(#ar)"/>
+      <path d="M250 658 L600 658 L600 686" class="edge dotted" fill="none" marker-end="url(#ar)"/>
+
+      <rect x="40" y="686" width="320" height="66" rx="11" class="n-lens"/>
+      <text x="60" y="710" class="ft-t" text-anchor="start">PCOS lens</text>
+      <text x="60" y="729" class="ft-s" text-anchor="start">female opt-in &#183; cycle + metabolic</text>
+      <text x="60" y="744" class="ft-s" text-anchor="start">lifestyle tracking, never screening</text>
+
+      <rect x="450" y="686" width="320" height="66" rx="11" class="n-lens"/>
+      <text x="470" y="710" class="ft-t" text-anchor="start">TRT lens</text>
+      <text x="470" y="729" class="ft-s" text-anchor="start">male opt-in &#183; compound + cycle log</text>
+      <text x="470" y="744" class="ft-s" text-anchor="start">pure logbook, never prescribes</text>
+
+      <!-- FALLBACK -->
+      <rect x="40" y="800" width="730" height="50" rx="10" class="n-note"/>
+      <text x="62" y="822" class="ft-note" text-anchor="start">Resilience: if the parser ever fails, it falls back to manual entry, then to demo data &#8212;</text>
+      <text x="62" y="839" class="ft-note" text-anchor="start">so the loop never breaks during a live demo or a real session.</text>
+    </svg>
+    </div>
+
+    <div class="flowlegend">
+      <span><i class="lg lg-box"></i> screen</span>
+      <span><i class="lg lg-clay"></i> the payoff</span>
+      <span><i class="lg lg-dark"></i> the hub</span>
+      <span><i class="lg lg-loop"></i> the recurring loop</span>
+    </div>
   </section>
 
   <!-- 3. TRADE-OFF -->
