@@ -120,6 +120,81 @@
   .step .d { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
   .step.last .d { color: #cbbfb2; }
   .loop-note { font-family: 'Kalam', cursive; font-size: 16px; color: var(--muted); margin-top: 16px; }
+  .size-note { font-family: 'Kalam', cursive; font-size: 15.5px; color: var(--muted); margin-top: 16px; max-width: 600px; }
+  .src { font-family: 'Spline Sans Mono', monospace; font-size: 11px; color: var(--muted-2); margin-top: 14px; line-height: 1.5; max-width: 600px; letter-spacing: 0.01em; }
+
+  /* competitiveness / share mechanic */
+  .cardmodel { margin-top: 22px; border: 1px solid var(--line-strong); border-radius: 14px; overflow: hidden; background: var(--paper-2); }
+  .cm-head {
+    background: var(--ink); color: #fbfaf6; padding: 14px 20px;
+    font-family: 'Nunito', system-ui, sans-serif; font-weight: 800; font-size: 15px;
+  }
+  .cm-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  @media (max-width: 560px) { .cm-grid { grid-template-columns: 1fr; } }
+  .cm-cell { padding: 18px 20px; border-bottom: 1px solid var(--line); }
+  .cm-cell:nth-child(odd) { border-right: 1px solid var(--line); }
+  @media (max-width: 560px) { .cm-cell:nth-child(odd) { border-right: none; } }
+  .cm-k { font-family: 'Spline Sans Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--no); margin-bottom: 8px; }
+  .cm-v { font-size: 14px; color: #322e27; line-height: 1.5; }
+  .cm-note { font-family: 'Kalam', cursive; font-size: 15px; color: var(--muted); padding: 14px 20px; margin: 0; }
+
+  .tcard {
+    margin-top: 18px; border-radius: 14px; overflow: hidden;
+    background: var(--no); color: #fff;
+  }
+  .tcard-tag {
+    font-family: 'Spline Sans Mono', monospace; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase;
+    color: #ffd9dd; padding: 16px 22px 0;
+  }
+  .tcard-body { padding: 8px 22px 22px; }
+  .tcard-h { font-family: 'Nunito', system-ui, sans-serif; font-weight: 800; font-size: clamp(18px,2.8vw,22px); line-height: 1.2; margin-bottom: 10px; }
+  .tcard-body p { color: #ffe4e7; font-size: 14.5px; line-height: 1.55; margin: 0; }
+  .tcard-body p b { color: #fff; font-weight: 800; }
+
+  /* business model */
+  .bmodel { margin-top: 22px; display: grid; gap: 11px; }
+  .bm { border: 1px solid var(--line-strong); border-radius: 13px; padding: 18px 20px; background: var(--paper-2); position: relative; }
+  .bm-1 { border-left: 4px solid var(--no); }
+  .bm-2 { border-left: 4px solid var(--sage); }
+  .bm-3 { border-left: 4px solid var(--muted-2); }
+  .bm-stage { font-family: 'Spline Sans Mono', monospace; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-2); margin-bottom: 7px; }
+  .bm-t { font-family: 'Nunito', system-ui, sans-serif; font-weight: 800; font-size: 17px; color: var(--ink); margin-bottom: 6px; }
+  .bm-d { font-size: 14.5px; color: var(--muted); line-height: 1.55; }
+  .bm-d b { color: var(--ink); font-weight: 700; }
+
+  .moat { margin-top: 16px; background: var(--ink); color: #fbfaf6; border-radius: 13px; padding: 20px 22px; }
+  .moat-k { font-family: 'Spline Sans Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #ff8a96; margin-bottom: 9px; }
+  .moat-v { font-size: 15px; line-height: 1.55; color: #e8e4dc; }
+  .moat-v b { color: #fff; font-weight: 800; }
+
+  /* ranking system */
+  .rankstack { margin-top: 22px; display: grid; grid-template-columns: repeat(3,1fr); gap: 11px; }
+  @media (max-width: 680px) { .rankstack { grid-template-columns: 1fr; } }
+  .rk { border: 1px solid var(--line-strong); border-radius: 13px; padding: 18px 18px; background: var(--paper-2); }
+  .rk-1 { border-top: 4px solid var(--sage-soft); }
+  .rk-2 { border-top: 4px solid var(--sage); }
+  .rk-3 { border-top: 4px solid var(--no); }
+  .rk-stage { font-family: 'Spline Sans Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-2); margin-bottom: 8px; }
+  .rk-t { font-family: 'Nunito', system-ui, sans-serif; font-weight: 800; font-size: 16.5px; color: var(--ink); margin-bottom: 7px; }
+  .rk-d { font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+  .rk-d b { color: var(--ink); font-weight: 700; }
+
+  .rankmoat { margin-top: 16px; background: var(--ink); color: #fbfaf6; border-radius: 13px; padding: 20px 22px; }
+  .rankmoat-k { font-family: 'Spline Sans Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #ff8a96; margin-bottom: 9px; }
+  .rankmoat-v { font-size: 15px; line-height: 1.55; color: #e8e4dc; }
+  .rankmoat-v b { color: #fff; font-weight: 800; }
+
+  /* scope divider: v1 vs roadmap */
+  .scopeband {
+    margin: 18px 0 8px; border: 1px dashed var(--line-strong); border-radius: 14px;
+    background: var(--stone); padding: 20px 22px;
+  }
+  .scopeband-k {
+    font-family: 'Spline Sans Mono', monospace; font-size: 11px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--no); margin-bottom: 9px;
+  }
+  .scopeband-v { font-size: 15px; line-height: 1.55; color: #322e27; max-width: 640px; }
+  .scopeband-v b { color: var(--ink); font-weight: 800; }
 
   /* 9-step approach sequence */
   .steps9 { margin-top: 22px; display: grid; gap: 0; }
@@ -145,45 +220,61 @@
     letter-spacing: .08em; text-transform: uppercase; vertical-align: middle;
     background: var(--no); color: #fff; padding: 3px 8px; border-radius: 5px; margin-left: 8px; font-weight: 500;
   }
-
-  /* product flow diagram */
-  .flowwrap { margin-top: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--paper-2); padding: 14px clamp(8px,2vw,18px); overflow-x: auto; }
-  .flow { width: 100%; min-width: 620px; height: auto; display: block; }
-  .flow .ft-t { font-family: 'Nunito', system-ui, sans-serif; font-weight: 600; font-size: 13.5px; fill: var(--ink); }
-  .flow .ft-t.clay { fill: var(--clay-deep); }
-  .flow .ft-t.dk { fill: #f4f0e9; }
-  .flow .ft-s { font-family: 'Nunito', system-ui, sans-serif; font-weight: 400; font-size: 10.5px; fill: var(--muted); }
-  .flow .ft-s.clay { fill: var(--clay-deep); opacity: 0.85; }
-  .flow .ft-s.dk { fill: #cbbfb2; }
-  .flow .ft-split { font-family: 'Spline Sans Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; fill: var(--muted-2); }
-  .flow .ft-tag { font-family: 'Spline Sans Mono', monospace; font-size: 9.5px; letter-spacing: .06em; fill: var(--muted); }
-  .flow .ft-tag.clay-tag { fill: var(--clay-deep); }
-  .flow .ft-note { font-family: 'Nunito', system-ui, sans-serif; font-size: 11.5px; fill: var(--muted); }
-  .flow .lanetag-bg { fill: var(--paper-2); }
-
-  .flow .n-box { fill: #fff; stroke: var(--line-strong); stroke-width: 1; }
-  .flow .n-land { fill: var(--chip); stroke: rgba(15,12,8,0.14); stroke-width: 1; }
-  .flow .n-clay { fill: rgba(202,0,19,0.10); stroke: var(--clay); stroke-width: 1.3; }
-  .flow .n-dark { fill: var(--deep); stroke: var(--deep); }
-  .flow .n-soft { fill: var(--paper); stroke: var(--line-strong); stroke-width: 1; }
-  .flow .n-lens { fill: #fff; stroke: var(--line-strong); stroke-width: 1; stroke-dasharray: 3 3; }
-  .flow .n-note { fill: rgba(202,0,19,0.05); stroke: rgba(202,0,19,0.25); stroke-width: 1; }
-
-  .flow .edge { stroke: var(--line-strong); stroke-width: 1.5; }
-  .flow .edge.dashed { stroke-dasharray: 5 4; }
-  .flow .edge.dotted { stroke-dasharray: 2 4; stroke: var(--muted-2); }
-  .flow .clay-edge { stroke: var(--clay); stroke-width: 1.8; stroke-dasharray: 6 4; }
-
-  .flowlegend {
-    display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 16px;
-    font-family: 'Spline Sans Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: .03em;
+  .s9ai {
+    display: inline-block; font-family: 'Spline Sans Mono', monospace; font-size: 9px;
+    letter-spacing: .1em; vertical-align: middle;
+    background: var(--ink); color: #fff; padding: 2px 7px; border-radius: 5px; margin-left: 8px; font-weight: 600;
   }
-  .flowlegend span { display: flex; align-items: center; gap: 7px; }
-  .lg { width: 13px; height: 13px; border-radius: 4px; display: inline-block; }
-  .lg-box { background: #fff; border: 1px solid var(--line-strong); }
-  .lg-clay { background: rgba(202,0,19,0.10); border: 1.3px solid var(--clay); }
-  .lg-dark { background: var(--deep); }
-  .lg-loop { background: transparent; border: 1.8px dashed var(--clay); }
+
+  /* bottom-up math */
+  /* market sizing funnel */
+  .funnel-size { margin-top: 22px; display: grid; gap: 10px; }
+  .fs { border-radius: 13px; padding: 18px 22px; border: 1px solid var(--line-strong); }
+  .fs.tam { background: var(--paper-2); }
+  .fs.sam { background: rgba(202,0,19,0.05); border-color: rgba(202,0,19,0.22); margin: 0 auto; width: 92%; }
+  .fs.som { background: var(--deep); border-color: var(--deep); margin: 0 auto; width: 84%; }
+  @media (max-width: 600px) { .fs.sam, .fs.som { width: 100%; } }
+  .fs-band {
+    font-family: 'Spline Sans Mono', monospace; font-size: 10.5px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--no); margin-bottom: 10px;
+  }
+  .fs.som .fs-band { color: #ff7a86; }
+  .fs-row { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; }
+  @media (max-width: 480px) { .fs-row { grid-template-columns: 1fr; gap: 8px; } }
+  .fs-num {
+    font-family: 'Nunito', system-ui, sans-serif; font-weight: 900; font-size: clamp(30px,5vw,44px);
+    color: var(--ink); letter-spacing: -.02em; line-height: 1; min-width: 120px;
+  }
+  .fs.som .fs-num { color: #fff; }
+  .fs-desc { font-size: 14px; color: var(--muted); line-height: 1.5; }
+  .fs-desc b { color: var(--ink); font-weight: 700; }
+  .fs.som .fs-desc { color: #cbc7bf; }
+  .fs.som .fs-desc b { color: #fff; }
+
+  /* GTM execution sub-line */
+  .rstep .rx {
+    font-size: 12.5px; color: var(--ink); line-height: 1.45; margin-top: 8px;
+    padding-top: 8px; border-top: 1px dashed var(--line-strong); opacity: 0.85;
+  }
+
+  /* execution timeline */
+  .weeks { margin-top: 22px; display: grid; gap: 10px; }
+  .wk { display: grid; grid-template-columns: 88px 1fr; gap: 16px; align-items: start;
+    border: 1px solid var(--line); border-radius: 11px; background: var(--paper-2); padding: 15px 18px; }
+  @media (max-width: 480px) { .wk { grid-template-columns: 1fr; gap: 4px; } }
+  .wkn { font-family: 'Nunito', system-ui, sans-serif; font-weight: 900; font-size: 14.5px; color: var(--no); }
+  .wkc { font-size: 14px; color: var(--muted); line-height: 1.5; }
+  .wkc b { color: var(--ink); font-weight: 700; }
+
+  /* learnings */
+  .learns { margin-top: 22px; display: grid; gap: 11px; }
+  .learn {
+    border: 1px solid var(--line); border-left: 3px solid var(--sage); border-radius: 10px;
+    background: var(--paper-2); padding: 16px 18px;
+  }
+  .learn .lh { font-family: 'Nunito', system-ui, sans-serif; font-weight: 800; font-size: 15.5px; color: var(--ink); margin-bottom: 5px; }
+  .learn .lb { font-size: 14px; color: var(--muted); line-height: 1.5; }
+  .learn .lb b { color: var(--ink); font-weight: 700; }
 
   /* shortlist — compact */
   .shortlist { display: grid; gap: 9px; margin-top: 18px; }
@@ -255,63 +346,6 @@
   .rstep .rt { font-weight: 600; font-size: 15px; margin-bottom: 3px; }
   .rstep .rd { font-size: 13.5px; color: var(--muted); line-height: 1.45; }
   .rstep .rd b { color: var(--ink); font-weight: 600; }
-  .followers {
-    display: flex; align-items: baseline; gap: 12px; margin: 22px 0 4px; flex-wrap: wrap;
-  }
-  .followers .big {
-    font-family: 'Nunito', system-ui, sans-serif; font-weight: 900; font-size: clamp(40px,8vw,64px);
-    color: var(--deep); letter-spacing: -.03em; line-height: .9;
-  }
-  .followers .cap { font-size: 15px; color: var(--muted); max-width: 320px; }
-
-  /* market sizing funnel */
-  .funnel-size { margin-top: 20px; display: grid; gap: 10px; }
-  .fs { border-radius: 13px; padding: 18px 22px; border: 1px solid var(--line); }
-  .fs.tam { background: var(--paper-2); }
-  .fs.sam { background: rgba(202,0,19,0.08); border-color: rgba(202,0,19,0.30); margin: 0 auto; width: 90%; }
-  .fs.som { background: var(--deep); border-color: var(--deep); margin: 0 auto; width: 78%; }
-  @media (max-width: 600px) { .fs.sam, .fs.som { width: 100%; } }
-  .fs-band {
-    font-family: 'Spline Sans Mono', monospace; font-size: 10.5px; letter-spacing: .18em;
-    text-transform: uppercase; color: var(--clay); margin-bottom: 10px;
-  }
-  .fs.som .fs-band { color: #f0b39c; }
-  .fs-row { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; }
-  @media (max-width: 480px) { .fs-row { grid-template-columns: 1fr; gap: 8px; } }
-  .fs-num {
-    font-family: 'Nunito', system-ui, sans-serif; font-weight: 900; font-size: clamp(30px,5vw,42px);
-    color: var(--deep); letter-spacing: -.02em; line-height: 1; min-width: 110px;
-  }
-  .fs.som .fs-num { color: #fff; }
-  .fs-desc { font-size: 14px; color: var(--muted); line-height: 1.45; }
-  .fs-desc b { color: var(--ink); font-weight: 600; }
-  .fs.som .fs-desc { color: #cbbfb2; }
-  .fs.som .fs-desc b { color: #fff; }
-  .size-note { font-family: 'Kalam', cursive; font-size: 15.5px; color: var(--muted); margin-top: 16px; max-width: 600px; }
-
-  /* 3-V cards */
-  .threeV { display: grid; grid-template-columns: repeat(3,1fr); gap: 11px; margin-top: 20px; }
-  @media (max-width: 640px) { .threeV { grid-template-columns: 1fr; } }
-  .v-card { border: 1px solid var(--line); border-radius: 12px; background: var(--paper-2); padding: 16px 18px; }
-  .v-k {
-    font-family: 'Spline Sans Mono', monospace; font-size: 10.5px; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--clay); margin-bottom: 9px;
-  }
-  .v-d { font-size: 13.5px; color: #322e27; line-height: 1.45; }
-
-  /* G-STIC */
-  .gstic { margin-top: 14px; border: 1px solid var(--line-strong); border-radius: 14px; overflow: hidden; }
-  .g-row { display: grid; grid-template-columns: 168px 1fr; border-bottom: 1px solid var(--line); align-items: stretch; }
-  .g-row:last-child { border-bottom: none; }
-  @media (max-width: 600px) { .g-row { grid-template-columns: 1fr; } }
-  .g-k {
-    background: var(--deep); color: #f4f0e9; padding: 18px 20px;
-    font-family: 'Nunito', system-ui, sans-serif; font-weight: 500; font-size: 17px;
-    letter-spacing: -0.005em; line-height: 1.2;
-    display: flex; align-items: center;
-  }
-  @media (max-width: 600px) { .g-k { padding: 14px 18px; font-size: 16px; } }
-  .g-v { padding: 18px 22px; font-size: 14.5px; color: #322e27; line-height: 1.55; background: var(--paper-2); }
 
   /* final */
   .final {
@@ -337,7 +371,7 @@
     <h1>Fit on the outside.<br><em>Flying blind</em> on the inside.</h1>
     <p class="standfirst">It started with a friend's surgery. It ends with the people who look healthiest finding out they never actually were.</p>
     <div class="arc">
-      <span>the realisation</span><span>the approach</span><span>the flow</span><span>the trade-off</span><span>who it's for</span><span>the market</span><span>how it spreads</span>
+      <span>the realisation</span><span>the approach</span><span>the trade-off</span><span>who it's for</span><span>the market</span><span>how it spreads</span><span>the share mechanic</span><span>the ranking</span><span>the model</span><span>the first 30 days</span><span>what I learned</span>
     </div>
   </header>
 
@@ -362,133 +396,15 @@
   <!-- 2. APPROACH -->
   <div class="ml reveal">The approach</div>
   <section class="reveal">
-    <h2 class="ct">The product isn't a test. It's the four-week loop the test should trigger.</h2>
+    <h2 class="ct">The product isn't a test. It's the loop the test should trigger.</h2>
     <div class="steps9">
-      <div class="s9"><div class="s9n">01</div><div class="s9c"><div class="s9t">Find a panel</div><div class="s9d">If you haven't tested yet, start here. Aggregated across PharmEasy, 1mg, Thyrocare, Redcliffe. Sorted by what's most worth booking, not by who pays the most.</div></div></div>
-      <div class="s9"><div class="s9n">02</div><div class="s9c"><div class="s9t">Upload</div><div class="s9d">Drop the report when it arrives. We parse D, B12, ferritin, lipids, sugar, thyroid automatically.</div></div></div>
-      <div class="s9"><div class="s9n">03</div><div class="s9c"><div class="s9t">Understand</div><div class="s9d">Your honest baseline in plain language. One lever per marker.</div></div></div>
-      <div class="s9"><div class="s9n">04</div><div class="s9c"><div class="s9t">Diagnose</div><div class="s9d">A handful of adaptive questions — picked based on what's actually drifting. Diet, sun, sleep, stress.</div></div></div>
-      <div class="s9"><div class="s9n">05</div><div class="s9c"><div class="s9t">Plan</div><div class="s9d">A four-week curated action plan. Foundations &#8594; food &#8594; movement &#8594; re-test. Two moves per week.</div></div></div>
-      <div class="s9"><div class="s9n">06</div><div class="s9c"><div class="s9t">Forecast</div><div class="s9d">Projects when each marker will drift. "D trending low by September."</div></div></div>
-      <div class="s9"><div class="s9n">07</div><div class="s9c"><div class="s9t">Nudge</div><div class="s9d">Weekly check-ins on your specific markers + a heads-up before each re-test window. Quiet, in your inbox.</div></div></div>
-      <div class="s9 loopclose"><div class="s9n">08</div><div class="s9c"><div class="s9t">Re-test <span class="s9badge">loop closes</span></div><div class="s9d">When the line gets close, the same marketplace surfaces the right panel again. The loop closes and begins again.</div></div></div>
-      <div class="s9 lens"><div class="s9n">09</div><div class="s9c"><div class="s9t">Lenses</div><div class="s9d">PCOS cycle tracking for women. HRT/TRT stage log for men on a protocol. Same engine, lens-specific.</div></div></div>
+      <div class="s9"><div class="s9n">01</div><div class="s9c"><div class="s9t">Test</div><div class="s9d">Already have a report? Upload it. Haven't tested? The marketplace surfaces the cheapest, fastest panel near you. Either way, one tap in.</div></div></div>
+      <div class="s9"><div class="s9n">02</div><div class="s9c"><div class="s9t">Baseline <span class="s9ai">AI</span></div><div class="s9d">AI reads the report, maps every marker to its reference range, and writes your baseline in plain language &#8212; the feeling first ("the low-energy one"), the clinical name second, one lever each &#8212; in seconds. No manual typing.</div></div></div>
+      <div class="s9"><div class="s9n">03</div><div class="s9c"><div class="s9t">Plan</div><div class="s9d">A few adaptive questions on what's actually drifting, then a four-week plan: foundations &#8594; food &#8594; movement &#8594; re-test. Two moves a week.</div></div></div>
+      <div class="s9"><div class="s9n">04</div><div class="s9c"><div class="s9t">Forecast</div><div class="s9d">A directional estimate — not a model off one data point — using your value, season, and diet to flag the likely drift window. "D usually slides by winter; worth a re-test in October."</div></div></div>
+      <div class="s9 loopclose"><div class="s9n">05</div><div class="s9c"><div class="s9t">Nudge &amp; re-test <span class="s9badge">loop closes</span></div><div class="s9d">Quiet weekly check-ins on your markers, a heads-up before the re-test window, and the right panel surfaced again when it's time. The loop closes and restarts.</div></div></div>
     </div>
-    <p class="loop-note">The test is the cold start. The loop is the product — and it works whether you've tested once, never, or yearly.</p>
-  </section>
-
-  <!-- 2b. PRODUCT FLOW -->
-  <div class="ml reveal">The product, end to end</div>
-  <section class="reveal">
-    <h2 class="ct">Two ways in. One loop they never leave.</h2>
-    <p class="tight">Whether you already have a report or haven't tested yet, every path converges on the same baseline, plan and accountability loop. Returning users skip straight to their dashboard.</p>
-
-    <div class="flowwrap">
-    <svg class="flow" viewBox="0 0 820 900" role="img" aria-label="Baseline product flow diagram">
-      <defs>
-        <marker id="ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M2 1.5L8 5L2 8.5" fill="none" stroke="var(--line-strong)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </marker>
-        <marker id="arc" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M2 1.5L8 5L2 8.5" fill="none" stroke="var(--clay)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </marker>
-      </defs>
-
-      <!-- MAIN COLUMN center x=250 -->
-      <rect x="150" y="24" width="200" height="54" rx="11" class="n-land"/>
-      <text x="250" y="46" class="ft-t" text-anchor="middle">Landing</text>
-      <text x="250" y="63" class="ft-s" text-anchor="middle">the hook + deficiency stats</text>
-      <line x1="250" y1="78" x2="250" y2="106" class="edge" marker-end="url(#ar)"/>
-
-      <rect x="150" y="106" width="200" height="54" rx="11" class="n-box"/>
-      <text x="250" y="128" class="ft-t" text-anchor="middle">/start</text>
-      <text x="250" y="145" class="ft-s" text-anchor="middle">profile &#183; diet &#183; sun &#183; city</text>
-
-      <text x="250" y="190" class="ft-split" text-anchor="middle">have a report?</text>
-      <path d="M250 160 L250 200" class="edge" fill="none" marker-end="url(#ar)"/>
-      <rect x="258" y="206" width="32" height="16" rx="4" class="lanetag-bg"/>
-      <text x="274" y="218" class="ft-tag" text-anchor="middle">yes</text>
-      <path d="M350 133 L560 133 L560 200" class="edge" fill="none" marker-end="url(#ar)"/>
-      <rect x="426" y="116" width="58" height="17" rx="4" class="lanetag-bg"/>
-      <text x="455" y="129" class="ft-tag" text-anchor="middle">not yet</text>
-
-      <rect x="150" y="200" width="200" height="52" rx="11" class="n-box"/>
-      <text x="250" y="220" class="ft-t" text-anchor="middle">/upload</text>
-      <text x="250" y="238" class="ft-s" text-anchor="middle">PDF &#8594; markers parsed</text>
-
-      <rect x="560" y="200" width="200" height="52" rx="11" class="n-box"/>
-      <text x="660" y="220" class="ft-t" text-anchor="middle">/tests</text>
-      <text x="660" y="238" class="ft-s" text-anchor="middle">book a panel &#183; marketplace</text>
-      <path d="M560 238 L410 238 L410 272 L352 272" class="edge dashed" fill="none" marker-end="url(#ar)"/>
-      <rect x="436" y="221" width="74" height="17" rx="4" class="lanetag-bg"/>
-      <text x="473" y="234" class="ft-tag" text-anchor="middle">gets tested</text>
-
-      <line x1="250" y1="252" x2="250" y2="282" class="edge" marker-end="url(#ar)"/>
-
-      <rect x="150" y="282" width="200" height="52" rx="11" class="n-box"/>
-      <text x="250" y="302" class="ft-t" text-anchor="middle">/intake</text>
-      <text x="250" y="320" class="ft-s" text-anchor="middle">5&#8211;7 adaptive questions</text>
-      <line x1="250" y1="334" x2="250" y2="364" class="edge" marker-end="url(#ar)"/>
-
-      <rect x="150" y="364" width="200" height="58" rx="11" class="n-clay"/>
-      <text x="250" y="388" class="ft-t clay" text-anchor="middle">/plan &#8212; the reveal</text>
-      <text x="250" y="406" class="ft-s clay" text-anchor="middle">4-week plan + accountability</text>
-      <line x1="250" y1="422" x2="250" y2="452" class="edge" marker-end="url(#ar)"/>
-
-      <rect x="140" y="452" width="220" height="60" rx="12" class="n-dark"/>
-      <text x="250" y="476" class="ft-t dk" text-anchor="middle">/dashboard</text>
-      <text x="250" y="495" class="ft-s dk" text-anchor="middle">baseline &#183; this week &#183; nudges</text>
-      <line x1="250" y1="512" x2="250" y2="542" class="edge" marker-end="url(#ar)"/>
-
-      <rect x="140" y="542" width="220" height="52" rx="11" class="n-box"/>
-      <text x="250" y="562" class="ft-t" text-anchor="middle">/forecast/[marker]</text>
-      <text x="250" y="580" class="ft-s" text-anchor="middle">decay curve &#183; soft re-test date</text>
-
-      <!-- RIGHT LANE 1 x=455 : re-test loop, forecast -> upload -->
-      <path d="M360 568 L500 568 L500 226 L352 226" class="edge clay-edge" fill="none" marker-end="url(#arc)"/>
-      <rect x="454" y="430" width="92" height="19" rx="5" class="lanetag-bg"/>
-      <text x="500" y="443" class="ft-tag clay-tag" text-anchor="middle">re-test loop</text>
-
-      <!-- RIGHT LANE 2 x=792 : returning user, start -> dashboard -->
-      <path d="M350 119 L720 119 L720 482 L360 482" class="edge clay-edge" fill="none" marker-end="url(#arc)"/>
-      <rect x="636" y="290" width="168" height="19" rx="5" class="lanetag-bg"/>
-      <text x="720" y="303" class="ft-tag clay-tag" text-anchor="middle">returning user &#8594; dashboard</text>
-
-      <!-- IMPROVE -->
-      <rect x="560" y="456" width="200" height="52" rx="11" class="n-soft"/>
-      <text x="660" y="476" class="ft-t" text-anchor="middle">/improve</text>
-      <text x="660" y="494" class="ft-s" text-anchor="middle">full move library</text>
-      <path d="M360 482 L560 482" class="edge" fill="none" marker-end="url(#ar)"/>
-
-      <!-- CONDITIONAL LENSES -->
-      <text x="250" y="637" class="ft-split" text-anchor="middle">conditional, by profile</text>
-      <path d="M250 594 L250 658" class="edge dotted" fill="none"/>
-      <path d="M250 658 L170 658 L170 686" class="edge dotted" fill="none" marker-end="url(#ar)"/>
-      <path d="M250 658 L600 658 L600 686" class="edge dotted" fill="none" marker-end="url(#ar)"/>
-
-      <rect x="40" y="686" width="320" height="66" rx="11" class="n-lens"/>
-      <text x="60" y="710" class="ft-t" text-anchor="start">PCOS lens</text>
-      <text x="60" y="729" class="ft-s" text-anchor="start">female opt-in &#183; cycle + metabolic</text>
-      <text x="60" y="744" class="ft-s" text-anchor="start">lifestyle tracking, never screening</text>
-
-      <rect x="450" y="686" width="320" height="66" rx="11" class="n-lens"/>
-      <text x="470" y="710" class="ft-t" text-anchor="start">TRT lens</text>
-      <text x="470" y="729" class="ft-s" text-anchor="start">male opt-in &#183; compound + cycle log</text>
-      <text x="470" y="744" class="ft-s" text-anchor="start">pure logbook, never prescribes</text>
-
-      <!-- FALLBACK -->
-      <rect x="40" y="800" width="730" height="50" rx="10" class="n-note"/>
-      <text x="62" y="822" class="ft-note" text-anchor="start">Resilience: if the parser ever fails, it falls back to manual entry, then to demo data &#8212;</text>
-      <text x="62" y="839" class="ft-note" text-anchor="start">so the loop never breaks during a live demo or a real session.</text>
-    </svg>
-    </div>
-
-    <div class="flowlegend">
-      <span><i class="lg lg-box"></i> screen</span>
-      <span><i class="lg lg-clay"></i> the payoff</span>
-      <span><i class="lg lg-dark"></i> the hub</span>
-      <span><i class="lg lg-loop"></i> the recurring loop</span>
-    </div>
+    <p class="loop-note">The test is the cold start. The loop is the product &#8212; and it works whether you've tested once, never, or yearly.</p>
   </section>
 
   <!-- 3. TRADE-OFF -->
@@ -543,33 +459,34 @@
   <!-- 4b. MARKET SIZING -->
   <div class="ml reveal">How big is this</div>
   <section class="reveal">
-    <h2 class="ct">Sizing it from the audience that already self-selects.</h2>
-    <p class="tight">The clean proxy for my ICP is the audience that follows the longevity and optimisation world — Huberman, Attia, Bryan Johnson. They've already raised their hand. I sized top-down from India's urban young population and cross-checked against that following.</p>
+    <h2 class="ct">A category worth billions — and a wedge I can actually win.</h2>
+    <p class="tight">The honest way to size this isn't counting heads, it's market value. The category is huge and consolidating fast; the trick is naming the realistic slice and the number I'd be accountable to.</p>
 
     <div class="funnel-size">
       <div class="fs tam">
-        <div class="fs-band">TAM</div>
+        <div class="fs-band">TAM &middot; the category ceiling</div>
         <div class="fs-row">
-          <div class="fs-num">~45M</div>
-          <div class="fs-desc"><b>Urban Indians, 18–28, with disposable income.</b> India's urban population is ~535M; this cohort is the slice young enough to build the habit and able to pay for tests.</div>
+          <div class="fs-num">~$13B</div>
+          <div class="fs-desc"><b>India's diagnostics market, 2025</b> &#8212; growing past <b>$28B by 2034</b> at ~11% a year. Blood and pathology testing is the bulk of it. This is the full pie Baseline plays in, not a headcount.</div>
         </div>
       </div>
       <div class="fs sam">
-        <div class="fs-band">SAM</div>
+        <div class="fs-band">SAM &middot; the slice I serve</div>
         <div class="fs-row">
-          <div class="fs-num">~6–8M</div>
-          <div class="fs-desc"><b>The optimisation-curious within it.</b> The ones who follow health/longevity creators and already act on their bodies — mirrored by Huberman's ~8M global reach. They have intent; they lack an India-built loop.</div>
+          <div class="fs-num">~$2&#8211;3B</div>
+          <div class="fs-desc"><b>Urban, preventive-and-wellness testing</b> &#8212; the fastest-growing sub-segment, ~70% of testing is urban, and home-collection D2C is surging. This is the proactive, pay-out-of-pocket money my product actually sits on top of, not sick-care.</div>
         </div>
       </div>
       <div class="fs som">
-        <div class="fs-band">SOM</div>
+        <div class="fs-band">SOM &middot; year one, bottom-up from my channel</div>
         <div class="fs-row">
-          <div class="fs-num">~250–400K</div>
-          <div class="fs-desc"><b>Reachable in year one through my own channel and its ripple.</b> Starting from 85K direct followers who are the ICP, plus the share and creator spillover the story creates.</div>
+          <div class="fs-num">~1,700</div>
+          <div class="fs-desc"><b>Baselines in month one.</b> 85K followers &#215; ~40% who are the exact ICP (by DM and poll patterns) = ~34K reachable, at 5% first-test conversion. At 30% re-test that's <b>~500 recurring by month three</b> &#8212; the number I'd live or die by, because it proves the loop, not the launch.</div>
         </div>
       </div>
     </div>
-    <p class="size-note">Top-down from population, sanity-checked bottom-up against creator reach. The point isn't the exact number — it's that a sharp, self-selecting, payment-ready segment of single-digit millions exists, and I can reach a real wedge of it on day one.</p>
+    <p class="size-note">TAM and SAM are the prize; SOM is the promise. I'm not pitching "capture the diagnostics market" &#8212; I'm pitching a sharp, ownable wedge into a multi-billion-dollar category that's already shifting from sick-care to self-driven prevention.</p>
+    <p class="src">Category figures: India diagnostics market sizing, IMARC &amp; industry reports, 2025. SAM is my estimate, triangulated from the ~70% urban share and the preventive-wellness sub-segment. SOM is bottom-up from my own channel data.</p>
   </section>
 
   <!-- 5. GTM — the engine -->
@@ -577,49 +494,136 @@
   <section class="reveal">
     <div class="engine-tag">This is why I'm building it</div>
     <div class="gtm-hook">The best consumer products ride a story. <em>I already have the story, and the audience.</em></div>
-    <p class="tight">People go to the gym, eat clean, and still have heart attacks — because they're optimising cosmetically and never looking inside. That's the exact contradiction I lived. And the people who follow me are people like me: driven, fit-looking, optimisation-curious. I don't market to them. I just tell them what happened to me.</p>
-
-    <div class="followers">
-      <div class="big">85K+</div>
-      <div class="cap">already follow me — and they're the ICP, not a lookalike of it. The ripple starts the moment I share my own report.</div>
-    </div>
+    <p class="tight">People go to the gym, eat clean, and still have heart attacks — because they're optimising cosmetically and never looking inside. That's the contradiction I lived. The people who follow me are people like me: driven, fit-looking, optimisation-curious. I don't market to them — I tell them what happened to me.</p>
 
     <div class="ripple">
-      <div class="rstep"><div class="rn">1</div><div><div class="rt">Tell my story, show my numbers</div><div class="rd">Fit on the outside, surprised on the inside. My real report is the first proof — no ad, just the truth that pulled me in.</div></div></div>
-      <div class="rstep"><div class="rn">2</div><div><div class="rt">Remove every excuse to not test</div><div class="rd">I've already done the legwork: <b>a built-in finder for the cheapest, fastest-turnaround tests near you</b> to play with. The first step costs a few hundred rupees and a tap.</div></div></div>
-      <div class="rstep"><div class="rn">3</div><div><div class="rt">Let the surprise spread it</div><div class="rd">10-out-of-10 means almost everyone who tests finds something. Each surprising result becomes the reason the next person tests — exactly how it spread in my own circle.</div></div></div>
-      <div class="rstep"><div class="rn">4</div><div><div class="rt">Keep them with the loop</div><div class="rd">Virality gets the first test. The nudge loop earns the second. <b>That's the difference between a spike and a product.</b></div></div></div>
+      <div class="rstep"><div class="rn">1</div><div><div class="rt">Tell my story, show my numbers</div><div class="rd">Fit on the outside, surprised on the inside — my real report on screen.</div><div class="rx">Execution: a 3-reel arc over week one (the test, the 10/10 result, the fix), each ending on "link in bio." My average reel does ~120K views; this is the most personal thing I'd have posted.</div></div></div>
+      <div class="rstep"><div class="rn">2</div><div><div class="rt">Remove every excuse to not test</div><div class="rd">A built-in finder for the cheapest, fastest panels near you.</div><div class="rx">Execution: marketplace pre-loaded with PharmEasy / 1mg / Thyrocare / Redcliffe pricing, scraped nightly, sorted by need. First step is a few hundred rupees and a tap — no decision fatigue.</div></div></div>
+      <div class="rstep"><div class="rn">3</div><div><div class="rt">Let the surprise spread it</div><div class="rd">Almost everyone who tests finds something. The result is the share.</div><div class="rx">Execution: a one-tap "share my baseline card" (markers blurred, the surprise intact) built for Stories, plus a referral nudge after the first result. Each surprised user is the reason the next one tests.</div></div></div>
+      <div class="rstep"><div class="rn">4</div><div><div class="rt">Keep them with the loop</div><div class="rd">Virality gets the first test. The loop earns the second.</div><div class="rx">Execution: the weekly email + re-test nudge is the retention engine. I track one number — re-test rate — and treat anything below 30% as the product failing, not the funnel.</div></div></div>
     </div>
   </section>
 
-  <!-- 5b. CHERNEV MODEL -->
-  <div class="ml reveal">The GTM, structured</div>
+  <!-- SCOPE DIVIDER: v1 vs how it compounds -->
+  <div class="scopeband reveal">
+    <div class="scopeband-k">everything above is v1 &#183; everything below is how it compounds</div>
+    <div class="scopeband-v">I'd ship <b>one thing</b> first: the loop. Test, baseline, plan, forecast, nudge. The mechanics below &#8212; sharing, ranking, the model &#8212; are real and they're where the moat is, but they're <b>roadmap, not launch.</b> Building them on day one would be optimising for breadth over the one thing that has to work.</div>
+  </div>
+
+  <!-- 5a2. COMPETITIVENESS / SHAREABLE CARD -->
+  <div class="ml reveal">The share mechanic</div>
   <section class="reveal">
-    <h2 class="ct">Run through Chernev's G-STIC and 3-V lens.</h2>
-    <p class="tight">The story is the engine. This is the discipline underneath it — so it holds up as a plan, not just a moment.</p>
+    <h2 class="ct">People don't share that they're sick. They share that they're winning.</h2>
+    <p class="tight">That's the unlock. A bad result is private; a <b>good</b> one is a flex. So the shareable baseline isn't a medical report &#8212; it's a scorecard. When your numbers are strong, you want people to see them. That instinct is the entire distribution engine.</p>
 
-    <div class="threeV">
-      <div class="v-card">
-        <div class="v-k">Customer value</div>
-        <div class="v-d">For the first time, you see your true internal state in plain language — and never silently slide back, because the loop catches the drift before you do.</div>
+    <div class="cardmodel">
+      <div class="cm-head">The cadence is school, not the clinic</div>
+      <div class="cm-grid">
+        <div class="cm-cell">
+          <div class="cm-k">Half-yearly &middot; the report card</div>
+          <div class="cm-v">A full-body panel. The complete picture, twice a year &#8212; the one you actually post when it's good.</div>
+        </div>
+        <div class="cm-cell">
+          <div class="cm-k">Quarterly &middot; the unit test</div>
+          <div class="cm-v">A cheap, targeted re-check of only the markers flagged as risky last time. If they're clean, the half-yearly is enough. If not, you caught it early.</div>
+        </div>
       </div>
-      <div class="v-card">
-        <div class="v-k">Company value</div>
-        <div class="v-d">Near-zero CAC through my own channel, a recurring re-test rhythm that builds retention, and a proprietary baseline that deepens with every upload.</div>
+      <p class="cm-note">Everyone remembers the rhythm of report cards and unit tests. Baseline borrows it &#8212; so testing stops feeling clinical and starts feeling like a score you're improving.</p>
+    </div>
+
+    <div class="tcard">
+      <div class="tcard-tag">the wedge for men</div>
+      <div class="tcard-body">
+        <div class="tcard-h">Testosterone is the most competitive number a man can post.</div>
+        <p>For men, testosterone tracks directly with energy, drive, strength, focus and mood &#8212; and <b>population-level testosterone has been falling for decades</b>, generation over generation. Most men have never measured it once. Put a real number on it and two things happen: the ones who score well <b>broadcast it</b>, and the ones who don't <b>finally have a reason to act</b>. Either way, it spreads.</p>
       </div>
-      <div class="v-card">
-        <div class="v-k">Collaborator value</div>
-        <div class="v-d">Diagnostic labs and pharmacy-test platforms get qualified, ready-to-book demand routed to them — Baseline sends them first-time and repeat testers.</div>
+    </div>
+    <p class="loop-note">The leaderboard instinct is the growth loop. A scorecard people are proud of travels further than any ad I could buy.</p>
+  </section>
+
+  <!-- 5a2b. RANKING SYSTEM -->
+  <div class="ml reveal">The ranking, and why it compounds</div>
+  <section class="reveal">
+    <h2 class="ct">A score is just a number. A percentile is a competition.</h2>
+    <p class="tight">Bryan Johnson's whole following exists because he can say he's in the top fraction of a percent for his age. That's the pull. The moment Baseline can tell someone <b>where they actually rank</b>, the scorecard stops being information and becomes status &#8212; and status is what travels.</p>
+
+    <div class="rankstack">
+      <div class="rk rk-1">
+        <div class="rk-stage">Stage 1 &middot; with the first data</div>
+        <div class="rk-t">Percentile score</div>
+        <div class="rk-d">As soon as there's a population to compare against, every marker gets a percentile for your age and sex. "Your vitamin D beats 82% of men your age." Instantly legible, instantly shareable &#8212; the Bryan Johnson framing, for everyone.</div>
+      </div>
+      <div class="rk rk-2">
+        <div class="rk-stage">Stage 2 &middot; as the data deepens</div>
+        <div class="rk-t">An Elo-style rating</div>
+        <div class="rk-d">With enough data, a single composite rating &#8212; chess-style &#8212; that blends your markers into one number that moves as you improve. It rewards the loop: re-test, push the number up, climb the ranks. The score itself becomes the reason to come back.</div>
+      </div>
+      <div class="rk rk-3">
+        <div class="rk-stage">Stage 3 &middot; the shareable flex</div>
+        <div class="rk-t">Ranked by region, state, country</div>
+        <div class="rk-d">Opt-in leaderboards: where you stand in your city, your state, India, the world. People share a top-percentile card the way they share a marathon time. Each share is a billboard pointing back to the test.</div>
       </div>
     </div>
 
-    <div class="gstic">
-      <div class="g-row"><div class="g-k">Goal</div><div class="g-v">Make a recurring blood-test habit the default for young, health-aware Indians. Year-one focus: first tests booked and second tests completed — the proof the loop works.</div></div>
-      <div class="g-row"><div class="g-k">Strategy</div><div class="g-v">Target the optimisation-curious 18–28 (the SAM) through a creator-led, story-first wedge. Win on the one thing incumbents miss: the persistent loop, not the one-time number.</div></div>
-      <div class="g-row"><div class="g-k">Tactics</div><div class="g-v">My story + my own report as the hook · a built-in finder for the cheapest, fastest-turnaround tests to remove all friction · auto-parsed baseline · forecast-timed nudges · share-driven ripple.</div></div>
-      <div class="g-row"><div class="g-k">Implementation</div><div class="g-v">Launch to 85K direct followers, instrument every upload, layer in lab partnerships for test booking, then widen to vegetarian audiences as the second segment.</div></div>
-      <div class="g-row"><div class="g-k">Control</div><div class="g-v">Watch first-test conversion, baseline uploads, nudge open-and-act rate, and re-test rate. Re-test rate is the real signal — it tells me the loop, not the launch, is doing the work.</div></div>
+    <div class="rankmoat">
+      <div class="rankmoat-k">Why this is a moat, not a feature</div>
+      <div class="rankmoat-v">A percentile is only as good as the population behind it. <b>The more people test, the sharper everyone's rank gets &#8212; and the harder it is for a latecomer to replicate.</b> The ranking improves with scale, scale comes from sharing, sharing comes from the ranking. The data flywheel and the growth loop are the same loop.</div>
     </div>
+  </section>
+
+  <!-- 5a3. BUSINESS MODEL -->
+  <div class="ml reveal">How it makes money</div>
+  <section class="reveal">
+    <h2 class="ct">Distribution is free. The money sits in the loop itself.</h2>
+    <p class="tight">The mistake would be to lead with ads &#8212; low CPMs, and ads in a health product erode the exact trust that makes people share. So I'd layer it: own the relationship first, monetise the testing I'm already driving, then add margin on top once the habit sticks.</p>
+
+    <div class="bmodel">
+      <div class="bm bm-1">
+        <div class="bm-stage">Layer 1 &middot; now</div>
+        <div class="bm-t">Test referral &#8212; the cash engine</div>
+        <div class="bm-d">Every panel booked through the marketplace pays a commission. Labs already pay handsomely for high-intent customers. And because the loop drives re-tests, <b>it's recurring revenue, not one-off</b> &#8212; the same user books two to four times a year.</div>
+      </div>
+      <div class="bm bm-2">
+        <div class="bm-stage">Layer 2 &middot; once the habit sticks</div>
+        <div class="bm-t">Subscription &#8212; the margin</div>
+        <div class="bm-d">A low monthly tier for people hooked on the loop: trend history, sharper forecasts, family profiles, priority re-test slots. Pure margin on users who've already proven they value the product.</div>
+      </div>
+      <div class="bm bm-3">
+        <div class="bm-stage">Layer 3 &middot; at scale</div>
+        <div class="bm-t">Brand placement &#8212; the cherry</div>
+        <div class="bm-d">Only once I own a large, trusting, self-testing audience. Supplement and health brands pay to reach the exact moment a user learns they're low on something &#8212; native, relevant, never a banner. A layer, never the foundation.</div>
+      </div>
+    </div>
+
+    <div class="moat">
+      <div class="moat-k">The moat</div>
+      <div class="moat-v"><b>Distribution and speed.</b> No one owns the relationship with the young Indian self-tester yet. A creator-led wedge lets me blitzscale that relationship while the category is still fragmented &#8212; and the re-test loop turns a one-time audience into recurring, defensible revenue before anyone else shows up.</div>
+    </div>
+  </section>
+
+  <!-- 5b. EXECUTION TIMELINE -->
+  <div class="ml reveal">The first 30 days, concretely</div>
+  <section class="reveal">
+    <h2 class="ct">What I'd actually do, week by week.</h2>
+    <div class="weeks">
+      <div class="wk"><div class="wkn">Week 1</div><div class="wkc"><b>Ship + seed.</b> Deploy on Vercel, wire the marketplace scraper, and post the story arc to my 85K. Goal: first 300 baselines, watch where people drop in the flow.</div></div>
+      <div class="wk"><div class="wkn">Week 2</div><div class="wkc"><b>Fix the drop-off.</b> Act on the live data and the friend-test learnings — plan before forecast, feeling before marker. Re-post the strongest reel as the funnel hardens.</div></div>
+      <div class="wk"><div class="wkn">Week 3</div><div class="wkc"><b>Turn on sharing.</b> Release the shareable baseline card + referral nudge once the core flow holds. This is where the ripple compounds beyond my own audience.</div></div>
+      <div class="wk"><div class="wkn">Week 4</div><div class="wkc"><b>Prove the loop.</b> First re-test nudges fire to week-1 users. The signal I'm chasing isn't installs — it's the first re-tests landing, because that's the whole thesis working.</div></div>
+    </div>
+    <p class="size-note">Cheap to run, fast to read, and every step produces a number that tells me whether to double down or kill it.</p>
+  </section>
+
+  <!-- 5c. USER FEEDBACK -->
+  <div class="ml reveal">What I learned showing it around</div>
+  <section class="reveal">
+    <h2 class="ct">I put v1 in front of five people from my test group. They changed it.</h2>
+    <div class="learns">
+      <div class="learn"><div class="lh">They skipped the forecast</div><div class="lb">Four of five went straight to the plan and ignored the projection. So I moved <b>the plan above the forecast</b> &#8212; people want the next move first, the why second.</div></div>
+      <div class="learn"><div class="lh">"Plain language" wasn't plain enough</div><div class="lb">"Ferritin" meant nothing to them. Now the baseline leads with the <b>feeling, not the marker</b> &#8212; "the low-energy one" before the clinical name.</div></div>
+      <div class="learn"><div class="lh">The marketplace was the real hook</div><div class="lb">The ones who hadn't tested cared less about the dashboard and more about <b>"just tell me the cheapest test."</b> So booking moved earlier in the flow.</div></div>
+    </div>
+    <p class="loop-note">None of these were what I expected to hear. That's the point of putting it in front of people early.</p>
   </section>
 
   <section class="final reveal">
