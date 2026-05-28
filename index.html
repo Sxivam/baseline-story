@@ -257,6 +257,27 @@
     padding-top: 8px; border-top: 1px dashed var(--line-strong); opacity: 0.85;
   }
 
+  /* walk the demo — route + line pattern */
+  .walk { margin-top: 8px; display: grid; gap: 0; }
+  .wkrow { display: grid; grid-template-columns: 132px 1fr; gap: 18px; align-items: start; padding: 14px 0; border-bottom: 1px dashed var(--line); position: relative; }
+  .wkrow.last { border-bottom: none; }
+  @media (max-width: 580px) { .wkrow { grid-template-columns: 1fr; gap: 4px; padding: 12px 0; } }
+  .wkroute {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--clay);
+    background: rgba(202,0,19,0.06);
+    padding: 4px 9px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    width: max-content;
+    letter-spacing: -0.005em;
+  }
+  .wkbody { font-size: 14.5px; color: var(--muted); line-height: 1.55; max-width: 640px; }
+  .wkbody b { color: var(--ink); font-weight: 800; }
+
   /* execution timeline */
   .weeks { margin-top: 22px; display: grid; gap: 10px; }
   .wk { display: grid; grid-template-columns: 88px 1fr; gap: 16px; align-items: start;
@@ -398,13 +419,32 @@
   <section class="reveal">
     <h2 class="ct">The product isn't a test. It's the loop the test should trigger.</h2>
     <div class="steps9">
-      <div class="s9"><div class="s9n">01</div><div class="s9c"><div class="s9t">Test</div><div class="s9d">Already have a report? Upload it. Haven't tested? The marketplace surfaces the cheapest, fastest panel near you. Either way, one tap in.</div></div></div>
-      <div class="s9"><div class="s9n">02</div><div class="s9c"><div class="s9t">Baseline <span class="s9ai">AI</span></div><div class="s9d">AI reads the report, maps every marker to its reference range, and writes your baseline in plain language &#8212; the feeling first ("the low-energy one"), the clinical name second, one lever each &#8212; in seconds. No manual typing.</div></div></div>
-      <div class="s9"><div class="s9n">03</div><div class="s9c"><div class="s9t">Plan</div><div class="s9d">A few adaptive questions on what's actually drifting, then a four-week plan: foundations &#8594; food &#8594; movement &#8594; re-test. Two moves a week.</div></div></div>
-      <div class="s9"><div class="s9n">04</div><div class="s9c"><div class="s9t">Forecast</div><div class="s9d">A directional estimate — not a model off one data point — using your value, season, and diet to flag the likely drift window. "D usually slides by winter; worth a re-test in October."</div></div></div>
-      <div class="s9 loopclose"><div class="s9n">05</div><div class="s9c"><div class="s9t">Nudge &amp; re-test <span class="s9badge">loop closes</span></div><div class="s9d">Quiet weekly check-ins on your markers, a heads-up before the re-test window, and the right panel surfaced again when it's time. The loop closes and restarts.</div></div></div>
+      <div class="s9"><div class="s9n">01</div><div class="s9c"><div class="s9t">Test</div><div class="s9d">Two ways in. Upload an existing report, or tap the marketplace and book the cheapest panel near you. One step, either way.</div></div></div>
+      <div class="s9"><div class="s9n">02</div><div class="s9c"><div class="s9t">Baseline <span class="s9ai">AI</span></div><div class="s9d">AI reads the PDF, maps every marker to its reference range, and writes your baseline in plain English. The feeling first ("the low-energy one"), the clinical name second. In seconds, no typing.</div></div></div>
+      <div class="s9"><div class="s9n">03</div><div class="s9c"><div class="s9t">Plan</div><div class="s9d">A handful of adaptive questions on what's actually drifting. Then a four-week plan that unlocks one week at a time. Foundations, food, movement, re-test. Two moves a week, checkable on the dashboard.</div></div></div>
+      <div class="s9"><div class="s9n">04</div><div class="s9c"><div class="s9t">Forecast</div><div class="s9d">A directional estimate, not a model from one data point. Your value, the season, and your diet flag the likely drift window. "D usually slides by winter. Worth a re-test in October."</div></div></div>
+      <div class="s9 loopclose"><div class="s9n">05</div><div class="s9c"><div class="s9t">Nudge &amp; re-test <span class="s9badge">loop closes</span></div><div class="s9d">A quiet weekly check-in lands in your inbox. When the forecast says it's time, the right panel surfaces again. The loop closes and restarts.</div></div></div>
     </div>
-    <p class="loop-note">The test is the cold start. The loop is the product &#8212; and it works whether you've tested once, never, or yearly.</p>
+    <p class="loop-note">The test is the cold start. The loop is the product. It works whether you've tested once, never, or yearly.</p>
+  </section>
+
+  <!-- 2b. WALK THE DEMO -->
+  <div class="ml reveal">Walk the demo</div>
+  <section class="reveal">
+    <h2 class="ct">Landing to loop, one sitting.</h2>
+    <p class="src" style="margin-top:0;margin-bottom:18px;">Live at <a href="https://web-sage-iota-57.vercel.app" target="_blank" rel="noopener" style="color:var(--clay);text-decoration:none;border-bottom:1px solid var(--clay);">web-sage-iota-57.vercel.app</a>. Every step has a fallback, so the demo never breaks.</p>
+    <div class="walk">
+      <div class="wkrow"><div class="wkroute">/</div><div class="wkbody"><b>Landing.</b> "Don't wait for a health scare." Stats grid (76% D-deficient, 47% B12, 57% women anemic). Two CTAs: <i>I haven't been tested</i> or <i>I have a recent report</i>.</div></div>
+      <div class="wkrow"><div class="wkroute">/start</div><div class="wkbody"><b>Profile.</b> Thirty seconds. Name, age, sex, diet, sun, city. Hero copy adapts to which CTA brought you here.</div></div>
+      <div class="wkrow"><div class="wkroute">/tests</div><div class="wkbody"><b>Marketplace (first-timers).</b> Concern-first filters in plain English. Low mood, always tired, energy crashes, heart check, or full body. Each maps to the right clinical markers and surfaces the cheapest panel across PharmEasy, 1mg, Thyrocare, Redcliffe.</div></div>
+      <div class="wkrow"><div class="wkroute">/upload</div><div class="wkbody"><b>Upload.</b> Drop the PDF. AI parses in 5 to 12 seconds. Manual entry for anything it can't read. Demo data as a final safety net so the loop never stalls.</div></div>
+      <div class="wkrow"><div class="wkroute">/intake</div><div class="wkbody"><b>Intake.</b> Five to seven questions, picked based on what's drifting plus your profile. Vegan + low B12 asks about B12 sources. Indoors + low D asks about morning sun.</div></div>
+      <div class="wkrow"><div class="wkroute">/plan</div><div class="wkbody"><b>Plan reveal.</b> Severity headline tied to your data. Week 1 opens. Weeks 2 to 4 stay locked until you tap. Each unlock flips the next tile into view. Email capture commits the four-week run.</div></div>
+      <div class="wkrow"><div class="wkroute">/dashboard</div><div class="wkbody"><b>Dashboard.</b> Feeling-first hero ("the low-energy one") above the clinical name. Current week with checkable moves, a progress bar, an end-of-week reflection prompt. Forecast and nudge tile alongside.</div></div>
+      <div class="wkrow"><div class="wkroute">/forecast/x</div><div class="wkbody"><b>Forecast detail.</b> Decay curve, factor weights, the italic credibility line up front. "Directional estimate, not a model from one data point."</div></div>
+      <div class="wkrow last"><div class="wkroute">/nudges</div><div class="wkbody"><b>The nudge.</b> The actual email that fires on the scheduled date, visible on the dashboard before it sends. <span style="color:var(--clay);font-weight:700;">Loop closes on screen.</span></div></div>
+    </div>
+    <p class="loop-note">Built so a person can arrive, get a baseline, get a plan, see the forecast, and see the email that brings them back. All in one sitting.</p>
   </section>
 
   <!-- 3. TRADE-OFF -->
@@ -597,7 +637,7 @@
 
     <div class="moat">
       <div class="moat-k">The moat</div>
-      <div class="moat-v"><b>Distribution and speed.</b> No one owns the relationship with the young Indian self-tester yet. A creator-led wedge lets me blitzscale that relationship while the category is still fragmented &#8212; and the re-test loop turns a one-time audience into recurring, defensible revenue before anyone else shows up.</div>
+      <div class="moat-v"><b>Distribution and speed.</b> No one owns the relationship with the young Indian self-tester yet. A creator-led wedge lets me blitzscale that relationship while the category is still fragmented. The re-test loop turns a one-time audience into recurring, defensible revenue before anyone else shows up.</div>
     </div>
   </section>
 
@@ -607,9 +647,9 @@
     <h2 class="ct">What I'd actually do, week by week.</h2>
     <div class="weeks">
       <div class="wk"><div class="wkn">Week 1</div><div class="wkc"><b>Ship + seed.</b> Deploy on Vercel, wire the marketplace scraper, and post the story arc to my 85K. Goal: first 300 baselines, watch where people drop in the flow.</div></div>
-      <div class="wk"><div class="wkn">Week 2</div><div class="wkc"><b>Fix the drop-off.</b> Act on the live data and the friend-test learnings — plan before forecast, feeling before marker. Re-post the strongest reel as the funnel hardens.</div></div>
+      <div class="wk"><div class="wkn">Week 2</div><div class="wkc"><b>Fix the drop-off.</b> Act on the live data and the friend-test learnings. Plan before forecast. Feeling before marker. Re-post the strongest reel as the funnel hardens.</div></div>
       <div class="wk"><div class="wkn">Week 3</div><div class="wkc"><b>Turn on sharing.</b> Release the shareable baseline card + referral nudge once the core flow holds. This is where the ripple compounds beyond my own audience.</div></div>
-      <div class="wk"><div class="wkn">Week 4</div><div class="wkc"><b>Prove the loop.</b> First re-test nudges fire to week-1 users. The signal I'm chasing isn't installs — it's the first re-tests landing, because that's the whole thesis working.</div></div>
+      <div class="wk"><div class="wkn">Week 4</div><div class="wkc"><b>Prove the loop.</b> First re-test nudges fire to week-1 users. The signal I'm chasing isn't installs. It's the first re-tests landing, because that's the whole thesis working.</div></div>
     </div>
     <p class="size-note">Cheap to run, fast to read, and every step produces a number that tells me whether to double down or kill it.</p>
   </section>
@@ -619,8 +659,8 @@
   <section class="reveal">
     <h2 class="ct">I put v1 in front of five people from my test group. They changed it.</h2>
     <div class="learns">
-      <div class="learn"><div class="lh">They skipped the forecast</div><div class="lb">Four of five went straight to the plan and ignored the projection. So I moved <b>the plan above the forecast</b> &#8212; people want the next move first, the why second.</div></div>
-      <div class="learn"><div class="lh">"Plain language" wasn't plain enough</div><div class="lb">"Ferritin" meant nothing to them. Now the baseline leads with the <b>feeling, not the marker</b> &#8212; "the low-energy one" before the clinical name.</div></div>
+      <div class="learn"><div class="lh">They skipped the forecast</div><div class="lb">Four of five went straight to the plan and ignored the projection. So I moved <b>the plan above the forecast</b>. People want the next move first, the why second.</div></div>
+      <div class="learn"><div class="lh">"Plain language" wasn't plain enough</div><div class="lb">"Ferritin" meant nothing to them. Now the baseline leads with the <b>feeling, not the marker</b>. "The low-energy one" before the clinical name.</div></div>
       <div class="learn"><div class="lh">The marketplace was the real hook</div><div class="lb">The ones who hadn't tested cared less about the dashboard and more about <b>"just tell me the cheapest test."</b> So booking moved earlier in the flow.</div></div>
     </div>
     <p class="loop-note">None of these were what I expected to hear. That's the point of putting it in front of people early.</p>
@@ -629,7 +669,7 @@
   <section class="final reveal">
     <div class="m">what I'm building</div>
     <span class="wordmark big on-dark">baseline<span class="dot">.</span></span>
-    <p>A single honest blood test, turned into a tracked, nudged, lasting habit — for the person who looks fit and never actually checked.</p>
+    <p>A single honest blood test, turned into a tracked, nudged, lasting habit. For the person who looks fit and never actually checked.</p>
     <div class="punch">The test is the cold start. The loop is the product.</div>
   </section>
 
