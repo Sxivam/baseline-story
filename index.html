@@ -257,6 +257,45 @@
     padding-top: 8px; border-top: 1px dashed var(--line-strong); opacity: 0.85;
   }
 
+  /* market sizing — bottom-up step build */
+  .guess { margin-top: 22px; display: grid; gap: 0; }
+  .gstep { display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: start; position: relative; padding-bottom: 22px; }
+  .gstep:not(.last)::before {
+    content: ""; position: absolute; left: 23px; top: 40px; bottom: 4px;
+    width: 2px; background: var(--line);
+  }
+  @media (max-width: 480px) { .gstep { grid-template-columns: 40px 1fr; gap: 12px; } .gstep:not(.last)::before { left: 19px; } }
+  .gn {
+    font-family: 'Spline Sans Mono', monospace;
+    font-weight: 600;
+    font-size: 12.5px;
+    color: var(--clay);
+    background: rgba(202,0,19,0.06);
+    border: 1.5px solid rgba(202,0,19,0.25);
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.02em;
+  }
+  .gc { padding-top: 6px; }
+  .gt { font-family: 'Nunito', system-ui, sans-serif; font-weight: 800; font-size: 16px; color: var(--ink); margin-bottom: 6px; letter-spacing: -.005em; line-height: 1.3; }
+  .gd { font-size: 14px; color: var(--muted); line-height: 1.55; max-width: 600px; margin-bottom: 10px; }
+  .gv {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ink);
+    background: rgba(202,0,19,0.05);
+    padding: 7px 13px;
+    border-radius: 7px;
+    display: inline-block;
+    letter-spacing: -0.005em;
+    border: 1px solid rgba(202,0,19,0.12);
+  }
+  .gv b { color: var(--clay); font-weight: 700; }
+
   /* walk the demo — route + line pattern */
   .walk { margin-top: 8px; display: grid; gap: 0; }
   .wkrow { display: grid; grid-template-columns: 132px 1fr; gap: 18px; align-items: start; padding: 14px 0; border-bottom: 1px dashed var(--line); position: relative; }
@@ -499,34 +538,55 @@
   <!-- 4b. MARKET SIZING -->
   <div class="ml reveal">How big is this</div>
   <section class="reveal">
-    <h2 class="ct">A category worth billions — and a wedge I can actually win.</h2>
-    <p class="tight">The honest way to size this isn't counting heads, it's market value. The category is huge and consolidating fast; the trick is naming the realistic slice and the number I'd be accountable to.</p>
+    <h2 class="ct">I'd rather show the math than wave at a category.</h2>
+    <p class="tight">Top-down market sizing is theatre. Here is the bottom-up build, every assumption visible, the kind of number I'd actually be accountable to. Each step starts from something I either own or can verify.</p>
 
-    <div class="funnel-size">
-      <div class="fs tam">
-        <div class="fs-band">TAM &middot; the category ceiling</div>
-        <div class="fs-row">
-          <div class="fs-num">~$13B</div>
-          <div class="fs-desc"><b>India's diagnostics market, 2025</b> &#8212; growing past <b>$28B by 2034</b> at ~11% a year. Blood and pathology testing is the bulk of it. This is the full pie Baseline plays in, not a headcount.</div>
-        </div>
-      </div>
-      <div class="fs sam">
-        <div class="fs-band">SAM &middot; the slice I serve</div>
-        <div class="fs-row">
-          <div class="fs-num">~$2&#8211;3B</div>
-          <div class="fs-desc"><b>Urban, preventive-and-wellness testing</b> &#8212; the fastest-growing sub-segment, ~70% of testing is urban, and home-collection D2C is surging. This is the proactive, pay-out-of-pocket money my product actually sits on top of, not sick-care.</div>
-        </div>
-      </div>
-      <div class="fs som">
-        <div class="fs-band">SOM &middot; year one, bottom-up from my channel</div>
-        <div class="fs-row">
-          <div class="fs-num">~1,700</div>
-          <div class="fs-desc"><b>Baselines in month one.</b> 85K followers &#215; ~40% who are the exact ICP (by DM and poll patterns) = ~34K reachable, at 5% first-test conversion. At 30% re-test that's <b>~500 recurring by month three</b> &#8212; the number I'd live or die by, because it proves the loop, not the launch.</div>
-        </div>
-      </div>
+    <div class="guess">
+      <div class="gstep"><div class="gn">01</div><div class="gc">
+        <div class="gt">Start with what I already control</div>
+        <div class="gd">85,000 Instagram followers I've built over the last 18 months. Almost all 18 to 28, urban India, fitness-and-optimisation-curious. The exact ICP, sitting in my DMs.</div>
+        <div class="gv">&rarr; <b>85,000 reachable</b></div>
+      </div></div>
+
+      <div class="gstep"><div class="gn">02</div><div class="gc">
+        <div class="gt">Filter to the bullseye</div>
+        <div class="gd">Not everyone fits. Polls and DM patterns over a year suggest roughly 40% map precisely to the wedge (fit-looking, never tested, optimisation-curious).</div>
+        <div class="gv">85,000 &times; 40% = <b>~34,000 in the bullseye</b></div>
+      </div></div>
+
+      <div class="gstep"><div class="gn">03</div><div class="gc">
+        <div class="gt">First-test conversion, deliberately conservative</div>
+        <div class="gd">5% try one panel after seeing the 3-reel story arc and the pizza-priced first step. That is low for a creator-led D2C funnel in this category; I'm under-pricing my own proof on purpose.</div>
+        <div class="gv">34,000 &times; 5% = <b>~1,700 baselines in month one</b></div>
+      </div></div>
+
+      <div class="gstep"><div class="gn">04</div><div class="gc">
+        <div class="gt">The loop kicks in (the thesis-defining number)</div>
+        <div class="gd">About 30% return for a second test within 3 months. Industry retention in diagnostics is higher; I'm staying low to keep the number honest. This is the moment the product stops being content and starts being a business.</div>
+        <div class="gv">1,700 &times; 30% = <b>~500 recurring users by month three</b></div>
+      </div></div>
+
+      <div class="gstep"><div class="gn">05</div><div class="gc">
+        <div class="gt">Revenue per looped user</div>
+        <div class="gd">Marketplace commission averages ~&#8377;300 per booking on a panel that costs less than a pizza or your favourite sushi. A looped user books 2 to 3 times a year.</div>
+        <div class="gv">&#8377;300 &times; 2.5 = <b>~&#8377;750 per user per year</b></div>
+      </div></div>
+
+      <div class="gstep"><div class="gn">06</div><div class="gc">
+        <div class="gt">Month-six run-rate (the number I'd live by)</div>
+        <div class="gd">500 looped users at ~&#8377;750 each. Small in absolute terms; that is the point. The proof is in the loop closing on real users at real unit economics, not a headline ARR. Once the share card unlocks in month three, the audience compounds 3 to 5x by month twelve.</div>
+        <div class="gv">500 &times; &#8377;750 = <b>~&#8377;3.75L ARR by month six, ~&#8377;12-15L by month twelve</b></div>
+      </div></div>
+
+      <div class="gstep last"><div class="gn">07</div><div class="gc">
+        <div class="gt">The category ceiling, for context only</div>
+        <div class="gd">India's diagnostics market: $13B in 2025, growing past $28B by 2034 at ~11% a year. The urban preventive D2C sub-segment is ~$2 to 3B and the fastest-moving slice inside it. The wedge I'm pitching is small. The category around it is enormous and consolidating.</div>
+        <div class="gv">&rarr; <b>$13B today, $28B by 2034. ~$2-3B reachable urban slice.</b></div>
+      </div></div>
     </div>
-    <p class="size-note">TAM and SAM are the prize; SOM is the promise. I'm not pitching "capture the diagnostics market" &#8212; I'm pitching a sharp, ownable wedge into a multi-billion-dollar category that's already shifting from sick-care to self-driven prevention.</p>
-    <p class="src">Category figures: India diagnostics market sizing, IMARC &amp; industry reports, 2025. SAM is my estimate, triangulated from the ~70% urban share and the preventive-wellness sub-segment. SOM is bottom-up from my own channel data.</p>
+
+    <p class="size-note">The pitch isn't "capture India's diagnostics market." It is "prove the re-test loop on 500 real users by month three, then ride the share mechanic into a category that's already moving from sick-care to self-driven prevention."</p>
+    <p class="src">Channel numbers verified from my own Instagram analytics. Conversion benchmarks from creator-led D2C funnels in adjacent categories (fitness, supplements). Diagnostics retention from publicly available reports on PharmEasy and 1mg. Category figures: IMARC, India diagnostics market sizing, 2025.</p>
   </section>
 
   <!-- 5. GTM — the engine -->
